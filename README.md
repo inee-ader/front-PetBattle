@@ -1,2 +1,2 @@
 # front-PetBattle
-Phase 4 project with Michael and Kevin
+Phase 4 project with Michael and Kevin G and Inee
