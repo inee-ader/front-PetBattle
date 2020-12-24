@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import BattleContainer from '../mainContainers/BattleContainer';
-import ChooseTeamContainer from '../mainContainers/ChooseTeamContainer';
 import LoginContainer from '../mainContainers/LoginContainer';
 import MainMenuContainer from '../mainContainers/MainMenuContainer';
+import ChooseTeamContainer from '../mainContainers/ChooseTeamContainer';
+import BattleContainer from '../mainContainers/BattleContainer';
 
 class Main extends Component {
     render() {
@@ -10,16 +10,16 @@ class Main extends Component {
             <div>
                 <h1>Main</h1>
                 <div className="">
-                    <BattleContainer/>
+                    <LoginContainer/>
+                </div>
+                <div className="">
+                    <MainMenuContainer/>
                 </div>
                 <div className="">
                     <ChooseTeamContainer/>
                 </div>
                 <div className="">
-                    <LoginContainer/>
-                </div>
-                <div className="">
-                    <MainMenuContainer/>
+                    <BattleContainer/>
                 </div>
             </div>
         );
