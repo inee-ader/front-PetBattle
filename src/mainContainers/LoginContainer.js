@@ -4,7 +4,7 @@ class LoginContainer extends Component {
     render() {
         return (
             <div>
-                login
+                <h3>login</h3>
             </div>
         );
     }
