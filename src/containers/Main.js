@@ -5,6 +5,7 @@ import ChooseTeamContainer from '../mainContainers/ChooseTeamContainer';
 import BattleContainer from '../mainContainers/BattleContainer';
 
 class Main extends Component {
+    
     render() {
         return (
             <div>

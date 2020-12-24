@@ -5,13 +5,16 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Main from './containers/Main';
 const AllPets = "https://us.api.blizzard.com/data/wow/pet/index?namespace=static-us&locale=en_US&access_token=UStPv2EvG8484Obpzj05JECVDGdwwrW414"
-const array = [39, 40, 42, 43, 44, 45, 46, 47, 49, 56, 72, 87, 89, 107, 126, 143, 147, 192]
+const array = [39, 40, 42, 43, 44, 45, 46, 47, 49, 56, 72, 87, 89, 107, 126, 143, 192]
 
 class App extends Component {
 
   state = {
     currentUser: [],
-    footerInfo: {}
+    apiPets: [],
+    footerInfo: {},
+    name: "",
+    token: ""
   }
 
   componentDidMount() {
@@ -26,7 +29,9 @@ class App extends Component {
     for(let i of array) {
       fetch(`https://us.api.blizzard.com/data/wow/pet/${i}?namespace=static-us&locale=en_US&access_token=UStPv2EvG8484Obpzj05JECVDGdwwrW414`)
       .then(res => res.json())
-      .then(console.log)
+      .then(data => {this.setState({
+        apiPets: [...this.state.apiPets, data]
+      })})
     }
   }
 
