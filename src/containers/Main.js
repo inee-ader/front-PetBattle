@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import LoginContainer from '../mainContainers/LoginContainer';
-import MainMenuContainer from '../mainContainers/MainMenuContainer';
-import ChooseTeamContainer from '../mainContainers/ChooseTeamContainer';
-import BattleContainer from '../mainContainers/BattleContainer';
+import LoginContainer from './mainContainers/LoginContainer';
+import MainMenuContainer from './mainContainers/MainMenuContainer';
+import ChooseTeamContainer from './mainContainers/ChooseTeamContainer';
+import BattleContainer from './mainContainers/BattleContainer';
 
 class Main extends Component {
-    
+
     render() {
         return (
             <div>
