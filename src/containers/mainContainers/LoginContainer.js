@@ -5,6 +5,7 @@ class LoginContainer extends Component {
         return (
             <div>
                 <h3>login</h3>
+                <h3>sign up</h3>
             </div>
         );
     }
