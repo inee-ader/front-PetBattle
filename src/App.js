@@ -5,7 +5,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Main from './containers/Main';
 const AllPets = "https://us.api.blizzard.com/data/wow/pet/index?namespace=static-us&locale=en_US&access_token=UStPv2EvG8484Obpzj05JECVDGdwwrW414"
-const array = [39, 40, 42, 43, 44, 45, 46, 47, 49, 56, 72, 87, 89, 107, 126, 143, 192]
+const array = [42, 43, 44, 45, 46, 47, 49, 56, 72, 87, 89, 107, 126, 143, 192]
+
+// 39, 40, removed pets so I could have only 15 in the array
 
 class App extends Component {
 
@@ -36,6 +38,7 @@ class App extends Component {
   }
 
   render() {
+    const {apiPets} = this.state
     return (
       <div className="App">
         <header className="">
@@ -43,7 +46,7 @@ class App extends Component {
         </header>
   
         <body className="">
-          <Main/>
+          <Main pets={apiPets} />
         </body>
   
         <footer className="">

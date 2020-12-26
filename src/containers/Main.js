@@ -7,6 +7,7 @@ import BattleContainer from '../mainContainers/BattleContainer';
 class Main extends Component {
     
     render() {
+        const {pets} = this.props
         return (
             <div>
                 <h1>Main</h1>
@@ -17,7 +18,7 @@ class Main extends Component {
                     <MainMenuContainer/>
                 </div>
                 <div className="">
-                    <ChooseTeamContainer/>
+                    <ChooseTeamContainer pets={pets}/>
                 </div>
                 <div className="">
                     <BattleContainer/>
