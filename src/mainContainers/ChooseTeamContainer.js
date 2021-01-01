@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import TeamContainer from '../multiplePlacesContainers/TeamContainer';
 import SelectPetsContainer from './SelectPetsContainer';
 // import PetCard from '../components/petComponents/PetCard';
-// import PetIconCard from '../components/petComponents/PetIconCard';
-// import PetStatsCard from '../components/petComponents/PetStatsCard';
+import PetIconCard from '../components/petComponents/PetIconCard';
+import PetStatsCard from '../components/petComponents/PetStatsCard';
 
 // footerInfo state is going to have 'BATTLE' button
 // footerInfo state comes down from App through props
@@ -11,33 +11,21 @@ import SelectPetsContainer from './SelectPetsContainer';
 
 class ChooseTeamContainer extends Component {
 
-    state={
-        selected: false, 
-        team: [], 
-        pets: this.props.pets
-    }
-
-    // handleClick = (pet) => {
-    //     console.log(pet)
-    // }
-
-    addPet = (pet) => {
-        console.log(pet)
-    }
-
-    removePet = (pet) => {
-        console.log(pet)
-    }
+    
+ // hover over pet changes PetIconCard and PetStatsCard. conditional: if nothing is hovered, clear those windows
+    
 
     render() {
-        const {pets, removePet, addPet} = this.props
+        const {pets, removePet, addPet, team, hoveredPet, setHoveredPet} = this.props
+
+        console.log(`ChooseTeamContainer Component ${team}`)
 
         return (
             <div>
                 <h4>Choose Team</h4>
                 <div className="">
                     <TeamContainer 
-                        team={this.state.team}
+                        team={team}
                         handleClick={this.removePet}
                     />
                 </div>
@@ -46,8 +34,14 @@ class ChooseTeamContainer extends Component {
                     <SelectPetsContainer 
                         pets={pets}
                         handleClick={this.addPet}
-                        selected={this.state.selected}
+                        setHoveredPet={setHoveredPet}
                     />
+                </div>
+                <div>
+                    <PetIconCard hoveredPet={hoveredPet} />
+                </div>
+                <div>
+                    <PetStatsCard hoveredPet={hoveredPet}/>
                 </div>
             </div>
         );

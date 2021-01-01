@@ -5,7 +5,7 @@ class SelectPetsContainer extends Component {
     
     render() {
         const {pets, handleClick} = this.props
-        
+
         return (
             <div>
                 <h3>Select Pets</h3>
@@ -15,6 +15,7 @@ class SelectPetsContainer extends Component {
                             key={pet.id}
                             pet={pet}
                             handleClick={handleClick}
+                            onMouseEnter={()=>setHoveredPet(pet)}
                         />
                     })}
                 </div>

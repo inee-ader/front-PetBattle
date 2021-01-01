@@ -1,6 +1,4 @@
 import React from 'react';
-import PetIconCard from './PetIconCard';
-import PetStatsCard from './PetStatsCard';
 
 // hover over shows description
 // state in pet card for hover? state for currently clicked? 
@@ -15,8 +13,6 @@ const PetCard = props => {
         <div className="pet-card" onClick={()=>props.handleClick(props.pet)}>
             <h4>{props.pet.name}</h4>
             <img src={props.pet.icon} alt="pet icon" />
-            <PetIconCard petIcon={props.pet.icon} />
-            <PetStatsCard pet={props.pet} />
         </div>
     );
 }

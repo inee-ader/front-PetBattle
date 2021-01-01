@@ -6,17 +6,23 @@ class TeamContainer extends Component {
     render() {
         const {team, handleClick} = this.props
 
+        makeTeam = () => {
+            if(team.length){
+                team.map(pet => {
+                    return <PetCard 
+                        key={pet.id}
+                        pet={pet}
+                        handleClick={handleClick}
+                    />
+                })
+            }
+        }
+        
         return (
             <div>
                 <h3>Team Container</h3>
                 <div className="">
-                    {team.map(pet => {
-                        return <PetCard
-                            key={pet.id}
-                            pet={pet}
-                            handleClick={handleClick}
-                        />
-                    })}
+                    {makeTeam()}
                 </div>
             </div>
         );
