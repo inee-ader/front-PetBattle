@@ -10,6 +10,7 @@ import PetStatsCard from '../components/petComponents/PetStatsCard';
 // battle button won't enable until 3 slots in TeamContainer are occupied
 
 import Container from 'react-bootstrap/Container'
+
 class ChooseTeamContainer extends Component {
 
     
