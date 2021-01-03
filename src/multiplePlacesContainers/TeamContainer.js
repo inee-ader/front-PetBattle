@@ -12,6 +12,7 @@ class TeamContainer extends Component {
                     key={pet.id}
                     pet={pet}
                     handleClick={this.props.handleClick}
+                    setHoveredPet={this.props.setHoveredPet}
                 />
             })
         }

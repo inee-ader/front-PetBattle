@@ -9,6 +9,7 @@ import PetStatsCard from '../components/petComponents/PetStatsCard';
 // footerInfo state comes down from App through props
 // battle button won't enable until 3 slots in TeamContainer are occupied
 
+import Container from 'react-bootstrap/Container'
 class ChooseTeamContainer extends Component {
 
     
@@ -19,28 +20,32 @@ class ChooseTeamContainer extends Component {
         const {pets, removePet, addPet, team, hoveredPet, setHoveredPet} = this.props
 
         return (
-            <div>
-                <h4>Choose Team</h4>
-                <div className="">
-                    <TeamContainer 
-                        team={team}
-                        handleClick={removePet}
-                    />
-                </div>
 
-                <div className="">
-                    <SelectPetsContainer 
-                        pets={pets}
-                        handleClick={addPet}
-                        setHoveredPet={setHoveredPet}
-                    />
-                </div>
-                <div>
-                    <PetIconCard hoveredPet={hoveredPet} />
-                </div>
-                <div>
-                    <PetStatsCard hoveredPet={hoveredPet}/>
-                </div>
+            <div>
+                <Container>
+                    <h4>Choose Team</h4>
+                    <div className="">
+                        <TeamContainer 
+                            team={team}
+                            handleClick={removePet}
+                            setHoveredPet={setHoveredPet}
+                        />
+                    </div>
+
+                    <div className="">
+                        <SelectPetsContainer 
+                            pets={pets}
+                            handleClick={addPet}
+                            setHoveredPet={setHoveredPet}
+                        />
+                    </div>
+                    <div>
+                        <PetIconCard hoveredPet={hoveredPet} />
+                    </div>
+                    <div>
+                        <PetStatsCard hoveredPet={hoveredPet} />
+                    </div>
+                </Container>
             </div>
         );
     }
