@@ -4,7 +4,7 @@ import PetCard from '../components/petComponents/PetCard';
 class SelectPetsContainer extends Component {
     
     render() {
-        const {pets, handleClick} = this.props
+        const {pets, handleClick, hoveredPet, setHoveredPet} = this.props
 
         return (
             <div>
@@ -15,7 +15,7 @@ class SelectPetsContainer extends Component {
                             key={pet.id}
                             pet={pet}
                             handleClick={handleClick}
-                            onMouseEnter={()=>setHoveredPet(pet)}
+                            setHoveredPet={setHoveredPet} 
                         />
                     })}
                 </div>

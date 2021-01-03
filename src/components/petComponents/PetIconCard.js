@@ -3,7 +3,7 @@ import React from 'react';
 const PetIconCard = props => {
     return (
         <div>
-            <img src={props.petIcon} alt="pet icon" /> 
+            <img src={props.hoveredPet.icon} alt="pet icon" /> 
         </div>
     );
 }

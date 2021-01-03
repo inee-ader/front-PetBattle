@@ -18,22 +18,20 @@ class ChooseTeamContainer extends Component {
     render() {
         const {pets, removePet, addPet, team, hoveredPet, setHoveredPet} = this.props
 
-        console.log(`ChooseTeamContainer Component ${team}`)
-
         return (
             <div>
                 <h4>Choose Team</h4>
                 <div className="">
                     <TeamContainer 
                         team={team}
-                        handleClick={this.removePet}
+                        handleClick={removePet}
                     />
                 </div>
 
                 <div className="">
                     <SelectPetsContainer 
                         pets={pets}
-                        handleClick={this.addPet}
+                        handleClick={addPet}
                         setHoveredPet={setHoveredPet}
                     />
                 </div>

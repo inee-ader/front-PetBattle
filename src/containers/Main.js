@@ -10,8 +10,6 @@ class Main extends Component {
 
         const {pets, team, addPet, removePet, hoveredPet, setHoveredPet} = this.props
 
-        console.log(`Main Component ${team}`)
-
         return (
             <div>
                 <h1>Main</h1>
@@ -23,11 +21,11 @@ class Main extends Component {
                 </div>
                 <div className="">
                     <ChooseTeamContainer 
-                        hoveredPet={hoveredPet} 
                         addPet={addPet} 
                         removePet={removePet} 
                         team={team} 
                         pets={pets}
+                        hoveredPet={hoveredPet} //state
                         setHoveredPet={setHoveredPet}
                         />
                 </div>

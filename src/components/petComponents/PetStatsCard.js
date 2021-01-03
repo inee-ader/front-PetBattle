@@ -1,13 +1,19 @@
 import React from 'react';
 
 const PetStatsCard = props => {
+
+    // after refresh, it cannot access type. is able to find type upon save and NOT refresh. 
+
     return (
-        // logic to iterate through abilities and make a list.
-        // hp, description, etc
-        
+ 
         <div>
-            Pet Stats
-            
+           
+            name: {props.hoveredPet.name}
+            <br/>
+            description: {props.hoveredPet.description}
+            <br/>
+            {/* type: {props.hoveredPet.battle_pet_type.name}  */}
+          
         </div>
     );
 }
