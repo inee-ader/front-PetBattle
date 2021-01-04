@@ -15,8 +15,8 @@ class SelectPetsContainer extends Component {
 
         return (
             <div>
-                <Container className="p-3">
-                    <Row>{pets.slice(0,5).map(pet=>{
+                <Container className="">
+                    {/* <Row>{pets.slice(0,5).map(pet=>{
                         return(
                             <Col>
                                 <PetCard key={pet.id}
@@ -51,10 +51,9 @@ class SelectPetsContainer extends Component {
                             </Col>
                         )
                     })}
-                    </Row>
+                    </Row> */}
 
-                {/* <h3>Select Pets</h3>
-                <div className="">
+                <div className="container">
                     {pets.map(pet => {
                         return <PetCard
                             key={pet.id}
@@ -63,7 +62,7 @@ class SelectPetsContainer extends Component {
                             setHoveredPet={setHoveredPet} 
                         />
                     })}
-                </div> */}
+                </div>
                 </Container>
             </div>
         );

@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+}
+
+.pet-card {
+  display:flex; 
+  border: 1px solid black;
+}
+.pet-card img{
+  padding: 7%;
+}

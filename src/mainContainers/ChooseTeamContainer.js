@@ -14,11 +14,13 @@ import Container from 'react-bootstrap/Container'
 class ChooseTeamContainer extends Component {
 
     
- // hover over pet changes PetIconCard and PetStatsCard. conditional: if nothing is hovered, clear those windows
-    
+    loadHoveredPet = () => {
+        
+    }
 
     render() {
         const {pets, removePet, addPet, team, hoveredPet, setHoveredPet} = this.props
+
 
         return (
 
@@ -34,6 +36,7 @@ class ChooseTeamContainer extends Component {
                     </div>
 
                     <div className="">
+                        <h4>Select Pets</h4>
                         <SelectPetsContainer 
                             pets={pets}
                             handleClick={addPet}
@@ -41,10 +44,10 @@ class ChooseTeamContainer extends Component {
                         />
                     </div>
                     <div>
-                        <PetIconCard hoveredPet={hoveredPet} />
+                        {hoveredPet.name ? <PetIconCard hoveredPet={hoveredPet} /> : null }
                     </div>
                     <div>
-                        <PetStatsCard hoveredPet={hoveredPet} />
+                        {hoveredPet.name ? <PetStatsCard hoveredPet={hoveredPet} /> : null }
                     </div>
                 </Container>
             </div>
