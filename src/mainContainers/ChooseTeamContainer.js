@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import TeamContainer from '../../multiplePlacesContainers/TeamContainer';
+import TeamContainer from '../multiplePlacesContainers/TeamContainer';
 import SelectPetsContainer from './SelectPetsContainer';
 // import PetCard from '../components/petComponents/PetCard';
-import PetIconCard from '../../components/petComponents/PetIconCard';
-import PetStatsCard from '../../components/petComponents/PetStatsCard';
+import PetIconCard from '../components/petComponents/PetIconCard';
+import PetStatsCard from '../components/petComponents/PetStatsCard';
 
 class ChooseTeamContainer extends Component {
     render() {

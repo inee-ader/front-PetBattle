@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TeamContainer from '../../multiplePlacesContainers/TeamContainer';
-import Boss from '../../components/Boss';
+import TeamContainer from '../multiplePlacesContainers/TeamContainer';
+import Boss from '../components/Boss';
 
 class BattleContainer extends Component {
     state = {
