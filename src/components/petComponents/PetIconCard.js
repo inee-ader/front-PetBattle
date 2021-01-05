@@ -1,9 +1,9 @@
 import React from 'react';
 
-const PetIconCard = () => {
+const PetIconCard = props => {
     return (
         <div>
-            Pet Icon
+            <img src={props.hoveredPet.icon} alt="pet icon" /> 
         </div>
     );
 }

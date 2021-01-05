@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 
-class LoginContainer extends Component {
+class SignUpContainer extends Component {
     state = {
         name: "",
-        password: ""
+        password: "",
+        alias: "",
+        bio: "",
+        gif_url: ""
     }
 
     handleSubmit = (e) => {
@@ -26,10 +29,17 @@ class LoginContainer extends Component {
                 <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
                 <label htmlFor="password">Password:</label>
                 <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
+                <label htmlFor="alias">Alias:</label>
+                <input type="alias" name="alias" value={this.state.alias} onChange={this.handleChange}/>
+                <label htmlFor="bio">Bio:</label>
+                <input type="bio" name="bio" value={this.state.bio} onChange={this.handleChange}/>
+                <label htmlFor="gif_url">Gif:</label>
+                <input type="gif_url" name="gif_url" value={this.state.gif_url} onChange={this.handleChange}/>
+                
                 <input type="submit" value="Submit"/>
             </form>
         );
     }
 }
 
-export default LoginContainer;
+export default SignUpContainer;
