@@ -17,6 +17,21 @@ class Main extends Component {
         }
     }
 
+    chooseTeam = (routerProps) => {
+        const {pets, team, addPet, removePet, hoveredPet, setHoveredPet} = this.props
+        console.log(routerProps)
+        if(routerProps.location.pathname === "/chooseTeam"){
+          return <ChooseTeamContainer 
+                addPet={addPet} 
+                removePet={removePet} 
+                team={team} 
+                pets={pets}
+                hoveredPet={hoveredPet} //state
+                setHoveredPet={setHoveredPet}
+            />
+        } 
+    }
+
     handleLogin = (info) => {
         console.log('login')
         this.handleAuthFetch(info, 'http://localhost:3000/login')

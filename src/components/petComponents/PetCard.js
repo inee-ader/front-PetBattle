@@ -1,9 +1,17 @@
 import React from 'react';
 
-const PetCard = () => {
+// hover over shows description
+// state in pet card for hover? state for currently clicked? 
+
+
+const PetCard = props => {
+    
+    // 
+
     return (
-        <div>
-            Pet
+        <div className="pet-card" onClick={()=>props.handleClick(props.pet)} onMouseEnter={()=>props.setHoveredPet(props.pet)} >
+            <h4>{props.pet.name}</h4>
+            <img src={props.pet.icon} alt="pet icon" />
         </div>
     );
 }
