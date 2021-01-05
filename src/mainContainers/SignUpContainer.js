@@ -6,7 +6,6 @@ class SignUpContainer extends Component {
         password: "",
         alias: "",
         bio: "",
-        gif_url: ""
     }
 
     handleSubmit = (e) => {
@@ -15,9 +14,9 @@ class SignUpContainer extends Component {
       }
     
       handleChange = (e) => {
-        let {input, value} = e.target
+        let {name, value} = e.target
         this.setState({
-          [input]: value
+          [name]: value
         })
       }
 

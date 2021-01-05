@@ -7,10 +7,14 @@ import BattleContainer from '../mainContainers/BattleContainer';
 import SignUpContainer from '../mainContainers/SignUpContainer';
 
 class Main extends Component {
+
+    state= {name: ""}
+
+
     renderForm = (routerProps) => {
         // console.log(routerProps)
         if(routerProps.location.pathname === "/"){
-          return <LoginContainer title="Login Form" handleSubmit={this.handleLogin} />
+          return <LoginContainer title="Login Form" handleLogin={this.handleLogin} />
         } else if (routerProps.location.pathname === "/signup"){
           return <SignUpContainer title="Sign Up Form" handleSubmit={this.handleSignup} />
         }
@@ -33,6 +37,9 @@ class Main extends Component {
         console.log('login')
         this.handleAuthFetch(info, 'http://localhost:3000/login')
     }
+
+    
+
     handleAuthFetch = (info, request) => {  
         fetch(request, {
             method: 'POST',
@@ -46,9 +53,20 @@ class Main extends Component {
         })
         .then(res => res.json())
         .then(data => {
-          // stores the user in state, but stores the token in localStorage            this.setState({name: data.name}, () => {
+          // stores the user in state, but stores the token in localStorage     
+          
+          
+          
+        //   this.props.setUserState({name: data.name})
+           
+        //     localStorage.setItem('jwt', data.token)
+        //     this.props.history.push('/chooseTeam')
+        
+          console.log(data)
+
+          this.setState({name: data.name},() => {
                 localStorage.setItem('jwt', data.token)
-                this.props.history.push('/')
+                this.props.history.push('/chooseTeam')
             })
         })
     }
@@ -63,20 +81,23 @@ class Main extends Component {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            username: info.username,
-            password: info.password,
-            alias: info.alias,
-            bio: info.bio,
-            gif_url: info.gif_url
+            user:{
+                name: info.name,
+                password: info.password,
+                alias: info.alias,
+                bio: info.bio,
+                gif_url: info.gif_url
+            }
           })
         })
         .then(res => res.json())
         .then(data => {
-          // stores the user in state, but stores the token in localStorage
+        //   stores the user in state, but stores the token in localStorage
           this.setState({name: data.name}, () => {
             localStorage.setItem('jwt', data.token)
-            this.props.history.push('/')
+            this.props.history.push('/chooseTeam')
           })
+        console.log(data)
         })
       }
     render() {

@@ -8,13 +8,13 @@ class LoginContainer extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.handleSubmit(this.state)
+        this.props.handleLogin(this.state)
       }
     
       handleChange = (e) => {
-        let {input, value} = e.target
+        let {name, value} = e.target
         this.setState({
-          [input]: value
+          [name]: value
         })
       }
 
