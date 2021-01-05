@@ -14,9 +14,9 @@ import Container from 'react-bootstrap/Container'
 class ChooseTeamContainer extends Component {
 
     
-    loadHoveredPet = () => {
+    // loadHoveredPet = () => {
         
-    }
+    // }
 
     render() {
         const {pets, removePet, addPet, team, hoveredPet, setHoveredPet} = this.props

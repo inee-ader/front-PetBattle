@@ -27,7 +27,7 @@ class Main extends Component {
                         pets={pets}
                         hoveredPet={hoveredPet} //state
                         setHoveredPet={setHoveredPet}
-                        />
+                    />
                 </div>
                 <div className="">
                     <BattleContainer/>
