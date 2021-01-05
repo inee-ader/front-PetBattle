@@ -9,7 +9,7 @@ import SignUpContainer from '../mainContainers/SignUpContainer';
 class Main extends Component {
 
     renderForm = (routerProps) => {
-        console.log(routerProps)
+        // console.log(routerProps)
         if(routerProps.location.pathname === "/"){
           return <LoginContainer title="Login Form" handleSubmit={this.handleLogin} />
         } else if (routerProps.location.pathname === "/signup"){
@@ -19,7 +19,7 @@ class Main extends Component {
 
     chooseTeam = (routerProps) => {
         const {pets, team, addPet, removePet, hoveredPet, setHoveredPet} = this.props
-        console.log(routerProps)
+        // console.log(routerProps)
         if(routerProps.location.pathname === "/chooseTeam"){
           return <ChooseTeamContainer 
                 addPet={addPet} 

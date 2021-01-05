@@ -45,7 +45,7 @@
 
 .pet-card {
   display:flex; 
-  border: 1px solid red;
+  border: 1px solid black;
 }
 .pet-card img{
   padding: 7%;

@@ -13,6 +13,7 @@ class App extends React.Component {
   state = {
     currentUser: [],
     apiPets: [],
+    page: "choose team",
     footerInfo: {},
     name: "",
     token: "", 
@@ -59,8 +60,46 @@ class App extends React.Component {
     this.setState({hoveredPet: pet})
   }
 
+  startBattle = () => {
+
+    console.log(this.state.team)
+
+    // createTeam()
+
+    // create team pets with hp, dmg, abilities
+    // create game
+    // create boss
+
+  }
+
+  // createTeam = () => {
+
+  //   fetch(`${BASEURL}/newgame`, configPetObj() )
+  //   .then(resp => resp.json())
+  //   .then(json => {
+  //     console.log
+  //   })
+
+
+
+  //}
+
+  configPetObj = () => {
+    return {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        team: this.state.team
+      })
+    }
+  }
+
+
   render() {
-    const {apiPets, team, hoveredPet} = this.state
+    const {apiPets, team, hoveredPet, footerInfo, page} = this.state
     return (
       <div className="App">
         
@@ -81,7 +120,7 @@ class App extends React.Component {
         </body>
   
         <footer className="">
-          <Footer/>
+          <Footer info={footerInfo} page={page} handleClick={this.startBattle}/>
         </footer>
         
       </div>
