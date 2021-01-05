@@ -7,6 +7,7 @@ import Main from './containers/Main';
 const AllPets = "https://us.api.blizzard.com/data/wow/pet/index?namespace=static-us&locale=en_US&access_token=UStPv2EvG8484Obpzj05JECVDGdwwrW414"
 const array = [39, 40, 42, 43, 44, 45, 46, 47, 49, 56, 72, 87, 89, 107, 126, 143, 192]
 const accessToken= "USYUxs9l7kXKRaTLzAGHbwZ0D31UwhbFK6"
+const BASEURL = 'http://localhost:3000'
 
 class App extends React.Component {
 
@@ -64,7 +65,7 @@ class App extends React.Component {
 
     console.log(this.state.team)
 
-    // createTeam()
+    this.createTeam()
 
     // create team pets with hp, dmg, abilities
     // create game
@@ -72,19 +73,20 @@ class App extends React.Component {
 
   }
 
-  // createTeam = () => {
+  createTeam = () => {
 
-  //   fetch(`${BASEURL}/newgame`, configPetObj() )
-  //   .then(resp => resp.json())
-  //   .then(json => {
-  //     console.log
-  //   })
+    fetch(`${BASEURL}/newgame`, this.configPetObj() )
+    .then(resp => resp.json())
+    .then(json => {
+      console.log(json)
+    })
 
 
 
-  //}
+  }
 
   configPetObj = () => {
+    console.log(this.state.team)
     return {
       method: 'POST',
       headers: {

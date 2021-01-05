@@ -7,7 +7,6 @@ import BattleContainer from '../mainContainers/BattleContainer';
 import SignUpContainer from '../mainContainers/SignUpContainer';
 
 class Main extends Component {
-
     renderForm = (routerProps) => {
         // console.log(routerProps)
         if(routerProps.location.pathname === "/"){
@@ -16,7 +15,6 @@ class Main extends Component {
           return <SignUpContainer title="Sign Up Form" handleSubmit={this.handleSignup} />
         }
     }
-
     chooseTeam = (routerProps) => {
         const {pets, team, addPet, removePet, hoveredPet, setHoveredPet} = this.props
         // console.log(routerProps)
@@ -31,12 +29,10 @@ class Main extends Component {
             />
         } 
     }
-
     handleLogin = (info) => {
         console.log('login')
         this.handleAuthFetch(info, 'http://localhost:3000/login')
     }
-
     handleAuthFetch = (info, request) => {  
         fetch(request, {
             method: 'POST',
@@ -50,14 +46,39 @@ class Main extends Component {
         })
         .then(res => res.json())
         .then(data => {
-          // stores the user in state, but stores the token in localStorage
-            this.setState({name: data.name}, () => {
+          // stores the user in state, but stores the token in localStorage            this.setState({name: data.name}, () => {
                 localStorage.setItem('jwt', data.token)
                 this.props.history.push('/')
             })
         })
     }
-
+    handleSignup = (info) => {
+        console.log('sign up')
+        this.handleSignUpFetch(info, 'http://localhost:3000/users')
+      }
+    handleSignUpFetch = (info, request) => {  
+        fetch(request, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username: info.username,
+            password: info.password,
+            alias: info.alias,
+            bio: info.bio,
+            gif_url: info.gif_url
+          })
+        })
+        .then(res => res.json())
+        .then(data => {
+          // stores the user in state, but stores the token in localStorage
+          this.setState({name: data.name}, () => {
+            localStorage.setItem('jwt', data.token)
+            this.props.history.push('/')
+          })
+        })
+      }
     render() {
         return (
             <div>
@@ -85,7 +106,4 @@ class Main extends Component {
         );
     }
 }
-
 export default withRouter(Main);
-
-
