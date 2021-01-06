@@ -1,12 +1,9 @@
 import React from 'react';
-import {BrowserRouter, withRouter} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom'
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Main from './containers/Main';
-const AllPets = "https://us.api.blizzard.com/data/wow/pet/index?namespace=static-us&locale=en_US&access_token=UStPv2EvG8484Obpzj05JECVDGdwwrW414"
-const array = [39, 40, 42, 43, 44, 45, 46, 47, 49, 56, 72, 87, 89, 107, 126, 143, 192]
-const accessToken= "USYUxs9l7kXKRaTLzAGHbwZ0D31UwhbFK6"
 const BASEURL = 'http://localhost:3000'
 
 class App extends React.Component {
@@ -23,7 +20,6 @@ class App extends React.Component {
 
   componentDidMount() {
     
-
     // for(let i of array) {
     //   fetch(`https://us.api.blizzard.com/data/wow/pet/${i}?namespace=static-us&locale=en_US&access_token=${accessToken}`)
     //   .then(res => res.json())
@@ -47,16 +43,13 @@ class App extends React.Component {
     //   })
     // }
 
-
     // fetch(`${BASEURL}/users/${this.state.userID}`)
     // .then() // this fetches from our api
 
   }
 
   setUserIDState = (id) => {
-
     this.setState({userID: id })
-
   }
 
   setAPIPetsState = () => {
@@ -66,10 +59,8 @@ class App extends React.Component {
      .then(data => {this.setState({
        pets: data.pets
      })
-     })
+    })
   }
-
-  
 
   addPet = (pet) => {
     if(this.state.team.length===3){return}
@@ -93,15 +84,11 @@ class App extends React.Component {
   }
 
   startBattle = () => {
-
     // console.log(this.state.team)
-
     this.createTeam(this.state.userID, this.state.team)
-
     // create team pets with hp, dmg, abilities
     // create game
     // create boss
-
   }
 
   createTeam = (id, team) => {
@@ -112,9 +99,6 @@ class App extends React.Component {
     .then(json => {
       console.log(json)
     })
-
-
-
   }
 
   configPetObj = (id, team) => {
@@ -131,7 +115,6 @@ class App extends React.Component {
       })
     }
   }
-
 
   render() {
     const {pets, team, hoveredPet, footerInfo, page, userID} = this.state

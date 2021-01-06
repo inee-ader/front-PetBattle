@@ -11,18 +11,20 @@ class Main extends Component {
 
     state= {name: ""}
 
-
     renderForm = (routerProps) => {
-        // console.log(routerProps)
         if(routerProps.location.pathname === "/"){
+
           return <LoginContainer title="Login Form" handleLogin={this.handleLogin} />
+
         } else if (routerProps.location.pathname === "/signup"){
+            
           return <SignUpContainer title="Sign Up Form" handleSubmit={this.handleSignup} />
+
         }
     }
     chooseTeam = (routerProps) => {
         const {pets, team, addPet, removePet, hoveredPet, setHoveredPet} = this.props
-        // console.log(routerProps)
+
         if(routerProps.location.pathname === "/chooseTeam"){
           return <ChooseTeamContainer 
                 addPet={addPet} 
@@ -57,8 +59,6 @@ class Main extends Component {
         console.log('login')
         this.handleAuthFetch(info, 'http://localhost:3000/login')
     }
-
-    
 
     handleAuthFetch = (info, request) => {  
         fetch(request, {
@@ -122,7 +122,6 @@ class Main extends Component {
     render() {
         return (
             <div>
-                {/* <h1>Main</h1> */}
                 <Switch>
                     <Route path="/" exact component={this.renderForm} />
                     <Route path="/signup" exact component={this.renderForm} />
@@ -130,18 +129,6 @@ class Main extends Component {
                     <Route path="/main" exact component={this.main} />
                     <Route path="/chooseTeam" exact component={this.chooseTeam} />
                     <Route path="/editUser" exact component={this.editUser} />
-                    {/* <div className="">
-                        <LoginContainer/>
-                    </div>
-                    <div className="">
-                        <MainMenuContainer/>
-                    </div>
-                    <div className="">
-                        <ChooseTeamContainer/>
-                    </div>
-                    <div className="">
-                        <BattleContainer/>
-                    </div> */}
                 </Switch>
             </div>
         );

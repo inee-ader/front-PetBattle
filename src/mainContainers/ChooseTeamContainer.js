@@ -8,17 +8,12 @@ import PetStatsCard from '../components/petComponents/PetStatsCard';
 // footerInfo state is going to have 'BATTLE' button
 // footerInfo state comes down from App through props
 
-
 import Container from 'react-bootstrap/Container'
 
 class ChooseTeamContainer extends Component {
 
-    
-
-
     render() {
         const {pets, removePet, addPet, team, hoveredPet, setHoveredPet} = this.props
-
 
         return (
 

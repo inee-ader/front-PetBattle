@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-// import {Redirect} from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 class MainMenuContainer extends Component {
     team = () => {
-        // <Redirect to="/chooseTeam" />
         this.props.history.push("/chooseTeam")
       }
 
     edit = () => {
-        // <Redirect to="/chooseTeam" />
         this.props.history.push("/editUser")
     }
 
@@ -22,8 +19,6 @@ class MainMenuContainer extends Component {
                 <Button variant="primary" onClick={this.team}>Choose Team</Button>
 
                 <Button variant="primary" onClick={this.edit}>Edit User</Button>
-
-                {/* <Button variant="primary" size="lg" onClick={() => handleClick()}>Delete User</Button> */}
 
             </div>
         );
