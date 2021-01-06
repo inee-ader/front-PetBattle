@@ -11,6 +11,11 @@ class MainMenuContainer extends Component {
         this.props.history.push("/editUser")
     }
 
+    logout = () => {
+        localStorage.clear()
+        this.props.history.push("/")
+    }
+
     render() {
         return (
             <div>
@@ -19,6 +24,8 @@ class MainMenuContainer extends Component {
                 <Button variant="primary" onClick={this.team}>Choose Team</Button>
 
                 <Button variant="primary" onClick={this.edit}>Edit User</Button>
+
+                <Button variant="primary" onClick={this.logout}>Log Out</Button>
 
             </div>
         );
