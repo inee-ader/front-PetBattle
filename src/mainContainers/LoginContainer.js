@@ -8,13 +8,13 @@ class LoginContainer extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.handleSubmit(this.state)
+        this.props.handleLogin(this.state)
       }
     
       handleChange = (e) => {
-        let {title, value} = e.target
+        let {name, value} = e.target
         this.setState({
-          [title]: value
+          [name]: value
         })
       }
 
@@ -23,10 +23,10 @@ class LoginContainer extends Component {
             <form onSubmit={this.handleSubmit}>
                 <h1>{this.props.title}</h1>
                 <label htmlFor="username">Name:</label>
-                <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
+                <input type="text" name="name" devaultValue={this.state.name} onChange={this.handleChange}/>
                 <label htmlFor="password">Password:</label>
-                <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
-                <input type="submit" value="Submit"/>
+                <input type="password" name="password" devaultValue={this.state.password} onChange={this.handleChange}/>
+                <input type="submit" devaultValue="Submit"/>
             </form>
         );
     }

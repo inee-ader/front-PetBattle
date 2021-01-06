@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
 class Footer extends Component {
-
     
     renderSwitch = () => {
         const {info, page, handleClick} = this.props
         switch(page) {
-
             // case 'login':
             //     //code 
             // break;
@@ -29,7 +27,6 @@ class Footer extends Component {
                 //this will default to login - so put login buttons here
         }
     }
-
 
     render() {
         return (

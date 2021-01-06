@@ -4,39 +4,62 @@ import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Main from './containers/Main';
-const AllPets = "https://us.api.blizzard.com/data/wow/pet/index?namespace=static-us&locale=en_US&access_token=UStPv2EvG8484Obpzj05JECVDGdwwrW414"
-const array = [39, 40, 42, 43, 44, 45, 46, 47, 49, 56, 72, 87, 89, 107, 126, 143, 192]
-const accessToken= "USYUxs9l7kXKRaTLzAGHbwZ0D31UwhbFK6"
+const BASEURL = 'http://localhost:3000'
 
 class App extends React.Component {
 
   state = {
     currentUser: [],
-    apiPets: [],
+    pets: [],
     page: "choose team",
     footerInfo: {},
-    name: "",
-    token: "", 
+    userID: "",
     team: [], 
     hoveredPet: {}
   }
 
   componentDidMount() {
-    // fetch(AllPets)
-    // .then(res => res.json())
-    // .then(console.log)
+    
+    // for(let i of array) {
+    //   fetch(`https://us.api.blizzard.com/data/wow/pet/${i}?namespace=static-us&locale=en_US&access_token=${accessToken}`)
+    //   .then(res => res.json())
+    //   .then(data => {this.setState({
+    //     apiPets: [...this.state.apiPets, data]
+    //   })})
+    // }
 
-    // fetch("https://us.api.blizzard.com/data/wow/pet/142?namespace=static-us&locale=en_US&access_token=UStPv2EvG8484Obpzj05JECVDGdwwrW414")
-    // .then(res=> res.json())
-    // .then(data => console.log(data))
+    // if (localStorage.getItem("jwt")) {
+    //   fetch("http://localhost:3000/getUser", {
+    //     method: "GET",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       "Authorization": `Bearer ${localStorage.getItem("jwt")}`
+    //     }
+    //   })
+    //   .then(resp => resp.json())
+    //   .then(data => {
+    //     console.log(data)
+    //     // this.setState({currentUser: data.user})
+    //   })
+    // }
 
-    for(let i of array) {
-      fetch(`https://us.api.blizzard.com/data/wow/pet/${i}?namespace=static-us&locale=en_US&access_token=${accessToken}`)
-      .then(res => res.json())
-      .then(data => {this.setState({
-        apiPets: [...this.state.apiPets, data]
-      })})
-    }
+    // fetch(`${BASEURL}/users/${this.state.userID}`)
+    // .then() // this fetches from our api
+
+  }
+
+  setUserIDState = (id) => {
+    this.setState({userID: id })
+  }
+
+  setAPIPetsState = () => {
+    
+     fetch(`${BASEURL}/users/${this.state.userID}`)
+     .then(resp => resp.json())
+     .then(data => {this.setState({
+       pets: data.pets
+     })
+    })
   }
 
   addPet = (pet) => {
@@ -61,45 +84,40 @@ class App extends React.Component {
   }
 
   startBattle = () => {
-
-    console.log(this.state.team)
-
-    // createTeam()
-
+    // console.log(this.state.team)
+    this.createTeam(this.state.userID, this.state.team)
     // create team pets with hp, dmg, abilities
     // create game
     // create boss
-
   }
 
-  // createTeam = () => {
+  createTeam = (id, team) => {
+    console.log(id, team)
+    debugger
+    fetch(`${BASEURL}/newgame`, this.configPetObj(id, team) )
+    .then(resp => resp.json())
+    .then(json => {
+      console.log(json)
+    })
+  }
 
-  //   fetch(`${BASEURL}/newgame`, configPetObj() )
-  //   .then(resp => resp.json())
-  //   .then(json => {
-  //     console.log
-  //   })
-
-
-
-  //}
-
-  configPetObj = () => {
+  configPetObj = (id, team) => {
+   
     return {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Authorization' : `Bearer ${localStorage.getItem('jwt')}`
       },
       body: JSON.stringify({
-        team: this.state.team
+        team: team
       })
     }
   }
 
-
   render() {
-    const {apiPets, team, hoveredPet, footerInfo, page} = this.state
+    const {pets, team, hoveredPet, footerInfo, page, userID} = this.state
     return (
       <div className="App">
         
@@ -112,9 +130,12 @@ class App extends React.Component {
           <Main addPet={this.addPet} 
               removePet={this.removePet} 
               team={team} 
-              pets={apiPets} 
+              pets={pets} 
               hoveredPet={hoveredPet} //state
               setHoveredPet={this.setHoveredPet}
+              setUserIDState={this.setUserIDState}
+              setAPIPetsState={this.setAPIPetsState}
+              userID={userID}
               />
         </BrowserRouter>
         </body>
@@ -128,4 +149,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default App; 

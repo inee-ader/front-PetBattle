@@ -4,7 +4,7 @@ const PetStatsCard = props => {
 
     // after refresh, it cannot access type. is able to find type upon save and NOT refresh. 
     if(props.hoveredPet){
-
+        // debugger
     return (
             
             <div>
@@ -13,9 +13,10 @@ const PetStatsCard = props => {
                 <br/>
                 description: {props.hoveredPet.description}
                 <br/>
-                type: {props.hoveredPet.battle_pet_type.name}
+                type: {props.hoveredPet.pet_type}
                 <br/>
-                abilities: {props.hoveredPet.abilities.map(ability => { return ability.ability.name })} 
+                abilities: {
+                JSON.parse(props.hoveredPet.abilities).map(ability => { return ability})} 
             
             </div>
         );

@@ -7,20 +7,13 @@ import PetStatsCard from '../components/petComponents/PetStatsCard';
 
 // footerInfo state is going to have 'BATTLE' button
 // footerInfo state comes down from App through props
-// battle button won't enable until 3 slots in TeamContainer are occupied
 
 import Container from 'react-bootstrap/Container'
 
 class ChooseTeamContainer extends Component {
 
-    
-    // loadHoveredPet = () => {
-        
-    // }
-
     render() {
         const {pets, removePet, addPet, team, hoveredPet, setHoveredPet} = this.props
-
 
         return (
 
