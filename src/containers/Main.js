@@ -92,7 +92,8 @@ class Main extends Component {
         fetch(request, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization' : `Bearer ${localStorage.getItem('jwt')}`
           },
           body: JSON.stringify({
             user:{
@@ -107,7 +108,6 @@ class Main extends Component {
         .then(res => res.json())
         .then(data => {
             console.log("inside the fetch")
-            // this.props.history.push('/')
         //   stores the user in state, but stores the token in localStorage
           this.setState({name: data.user.name}, () => {
             localStorage.setItem('jwt', data.token)
@@ -117,7 +117,9 @@ class Main extends Component {
         this.props.setUserIDState(data.user.id)
 
         })
-        .then(() => this.props.setAPIPetsState())
+        .then(() => {
+            this.props.setAPIPetsState()
+        })
       }
     render() {
         return (
