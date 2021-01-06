@@ -55,8 +55,7 @@ class App extends React.Component {
   setAPIPetsState = () => { 
      fetch(`${BASEURL}/users/${this.state.userID}`)
      .then(resp => resp.json())
-     .then(data => {
-       this.setState({
+     .then(data => {this.setState({
        pets: data.pets
      })
     })
