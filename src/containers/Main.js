@@ -92,13 +92,18 @@ class Main extends Component {
         })
         .then(res => res.json())
         .then(data => {
+            console.log("inside the fetch")
+            // this.props.history.push('/')
         //   stores the user in state, but stores the token in localStorage
-          this.setState({name: data.name}, () => {
+          this.setState({name: data.user.name}, () => {
             localStorage.setItem('jwt', data.token)
             this.props.history.push('/chooseTeam')
           })
-        console.log(data)
+
+        this.props.setUserIDState(data.user.id)
+
         })
+        .then(() => this.props.setAPIPetsState())
       }
     render() {
         return (

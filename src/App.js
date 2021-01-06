@@ -16,28 +16,58 @@ class App extends React.Component {
     apiPets: [],
     page: "choose team",
     footerInfo: {},
-    name: "",
+    userID: "",
     team: [], 
     hoveredPet: {}
   }
 
   componentDidMount() {
-    // fetch(AllPets)
-    // .then(res => res.json())
-    // .then(console.log)
+    
 
-    // fetch("https://us.api.blizzard.com/data/wow/pet/142?namespace=static-us&locale=en_US&access_token=UStPv2EvG8484Obpzj05JECVDGdwwrW414")
-    // .then(res=> res.json())
-    // .then(data => console.log(data))
+    // for(let i of array) {
+    //   fetch(`https://us.api.blizzard.com/data/wow/pet/${i}?namespace=static-us&locale=en_US&access_token=${accessToken}`)
+    //   .then(res => res.json())
+    //   .then(data => {this.setState({
+    //     apiPets: [...this.state.apiPets, data]
+    //   })})
+    // }
 
-    for(let i of array) {
-      fetch(`https://us.api.blizzard.com/data/wow/pet/${i}?namespace=static-us&locale=en_US&access_token=${accessToken}`)
-      .then(res => res.json())
-      .then(data => {this.setState({
-        apiPets: [...this.state.apiPets, data]
-      })})
-    }
+    // if (localStorage.getItem("jwt")) {
+    //   fetch("http://localhost:3000/getUser", {
+    //     method: "GET",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       "Authorization": `Bearer ${localStorage.getItem("jwt")}`
+    //     }
+    //   })
+    //   .then(resp => resp.json())
+    //   .then(data => {
+    //     console.log(data)
+    //     // this.setState({currentUser: data.user})
+    //   })
+    // }
+
+
+    // fetch(`${BASEURL}/users/${this.state.userID}`)
+    // .then() // this fetches from our api
+
   }
+
+  setUserIDState = (id) => {
+
+    this.setState({userID: id })
+
+  }
+
+  setAPIPetsState = () => {
+     fetch(`${BASEURL}/users/${this.state.userID}`)
+     .then(resp => resp.json())
+     .then(data => {
+       console.log(data)
+     })
+  }
+
+  
 
   addPet = (pet) => {
     if(this.state.team.length===3){return}
@@ -116,6 +146,8 @@ class App extends React.Component {
               pets={apiPets} 
               hoveredPet={hoveredPet} //state
               setHoveredPet={this.setHoveredPet}
+              setUserIDState={this.setUserIDState}
+              setAPIPetsState={this.setAPIPetsState}
               />
         </BrowserRouter>
         </body>
