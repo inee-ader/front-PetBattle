@@ -13,7 +13,7 @@ class App extends React.Component {
 
   state = {
     currentUser: [],
-    apiPets: [],
+    pets: [],
     page: "choose team",
     footerInfo: {},
     userID: "",
@@ -60,10 +60,12 @@ class App extends React.Component {
   }
 
   setAPIPetsState = () => {
+    
      fetch(`${BASEURL}/users/${this.state.userID}`)
      .then(resp => resp.json())
-     .then(data => {
-       console.log(data)
+     .then(data => {this.setState({
+       pets: data.pets
+     })
      })
   }
 
@@ -92,9 +94,9 @@ class App extends React.Component {
 
   startBattle = () => {
 
-    console.log(this.state.team)
+    // console.log(this.state.team)
 
-    this.createTeam()
+    this.createTeam(this.state.userID, this.state.team)
 
     // create team pets with hp, dmg, abilities
     // create game
@@ -102,9 +104,10 @@ class App extends React.Component {
 
   }
 
-  createTeam = () => {
-
-    fetch(`${BASEURL}/newgame`, this.configPetObj() )
+  createTeam = (id, team) => {
+    console.log(id, team)
+    debugger
+    fetch(`${BASEURL}/newgame`, this.configPetObj(id, team) )
     .then(resp => resp.json())
     .then(json => {
       console.log(json)
@@ -114,8 +117,8 @@ class App extends React.Component {
 
   }
 
-  configPetObj = () => {
-    console.log(this.state.team)
+  configPetObj = (id, team) => {
+   
     return {
       method: 'POST',
       headers: {
@@ -123,14 +126,14 @@ class App extends React.Component {
         'Accept': 'application/json'
       },
       body: JSON.stringify({
-        team: this.state.team
+        team: team
       })
     }
   }
 
 
   render() {
-    const {apiPets, team, hoveredPet, footerInfo, page} = this.state
+    const {pets, team, hoveredPet, footerInfo, page} = this.state
     return (
       <div className="App">
         
@@ -143,7 +146,7 @@ class App extends React.Component {
           <Main addPet={this.addPet} 
               removePet={this.removePet} 
               team={team} 
-              pets={apiPets} 
+              pets={pets} 
               hoveredPet={hoveredPet} //state
               setHoveredPet={this.setHoveredPet}
               setUserIDState={this.setUserIDState}

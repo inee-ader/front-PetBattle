@@ -33,6 +33,15 @@ class Main extends Component {
             />
         } 
     }
+
+    main = (routerProps) => {
+        if(routerProps.location.pathname === "/main"){
+            return <MainMenuContainer 
+                history={this.props.history}
+              />
+          } 
+    }
+
     handleLogin = (info) => {
         console.log('login')
         this.handleAuthFetch(info, 'http://localhost:3000/login')
@@ -44,7 +53,8 @@ class Main extends Component {
         fetch(request, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization' : `Bearer ${localStorage.getItem('jwt')}`
             },
             body: JSON.stringify({
                 name: info.name,
@@ -54,21 +64,14 @@ class Main extends Component {
         .then(res => res.json())
         .then(data => {
           // stores the user in state, but stores the token in localStorage     
-          
-          
-          
-        //   this.props.setUserState({name: data.name})
-           
-        //     localStorage.setItem('jwt', data.token)
-        //     this.props.history.push('/chooseTeam')
-        
-          console.log(data)
 
-          this.setState({name: data.name},() => {
+            this.setState({name: data.name},() => {
                 localStorage.setItem('jwt', data.token)
-                this.props.history.push('/chooseTeam')
+                this.props.history.push('/main')
             })
+            this.props.setUserIDState(data.user.id)
         })
+        .then(() => this.props.setAPIPetsState())
     }
     handleSignup = (info) => {
         console.log('sign up')
@@ -97,7 +100,7 @@ class Main extends Component {
         //   stores the user in state, but stores the token in localStorage
           this.setState({name: data.user.name}, () => {
             localStorage.setItem('jwt', data.token)
-            this.props.history.push('/chooseTeam')
+            this.props.history.push('/main')
           })
 
         this.props.setUserIDState(data.user.id)
