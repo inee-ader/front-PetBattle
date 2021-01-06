@@ -123,7 +123,8 @@ class App extends React.Component {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Authorization' : `Bearer ${localStorage.getItem('jwt')}`
       },
       body: JSON.stringify({
         team: team
@@ -133,7 +134,7 @@ class App extends React.Component {
 
 
   render() {
-    const {pets, team, hoveredPet, footerInfo, page} = this.state
+    const {pets, team, hoveredPet, footerInfo, page, userID} = this.state
     return (
       <div className="App">
         
@@ -151,6 +152,7 @@ class App extends React.Component {
               setHoveredPet={this.setHoveredPet}
               setUserIDState={this.setUserIDState}
               setAPIPetsState={this.setAPIPetsState}
+              userID={userID}
               />
         </BrowserRouter>
         </body>

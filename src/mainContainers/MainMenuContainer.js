@@ -19,9 +19,9 @@ class MainMenuContainer extends Component {
             <div>
                 <h2>Main Menu</h2>
 
-                <Button variant="primary" size="lg" onClick={this.team}>Choose Team</Button>
+                <Button variant="primary" onClick={this.team}>Choose Team</Button>
 
-                {/* <Button variant="primary" size="lg" onClick={() => handleClick()}>Edit User</Button> */}
+                <Button variant="primary" onClick={this.edit}>Edit User</Button>
 
                 {/* <Button variant="primary" size="lg" onClick={() => handleClick()}>Delete User</Button> */}
 

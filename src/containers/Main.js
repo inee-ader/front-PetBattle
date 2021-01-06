@@ -5,6 +5,7 @@ import MainMenuContainer from '../mainContainers/MainMenuContainer';
 import ChooseTeamContainer from '../mainContainers/ChooseTeamContainer';
 import BattleContainer from '../mainContainers/BattleContainer';
 import SignUpContainer from '../mainContainers/SignUpContainer';
+import EditUserContainer from '../mainContainers/EditUserContainer'
 
 class Main extends Component {
 
@@ -38,6 +39,16 @@ class Main extends Component {
         if(routerProps.location.pathname === "/main"){
             return <MainMenuContainer 
                 history={this.props.history}
+                
+              />
+          } 
+    }
+
+    editUser = (routerProps) => {
+        if(routerProps.location.pathname === "/editUser"){
+            return <EditUserContainer 
+                history={this.props.history}
+                userID={this.props.userID}
               />
           } 
     }
@@ -118,6 +129,7 @@ class Main extends Component {
                     <Route path="/battle" exact component={this.battle} />
                     <Route path="/main" exact component={this.main} />
                     <Route path="/chooseTeam" exact component={this.chooseTeam} />
+                    <Route path="/editUser" exact component={this.editUser} />
                     {/* <div className="">
                         <LoginContainer/>
                     </div>
