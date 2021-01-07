@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 class MainMenuContainer extends Component {
@@ -18,15 +19,13 @@ class MainMenuContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="main-menu-btns">
                 <h2>Main Menu</h2>
-
-                <Button variant="primary" onClick={this.team}>Choose Team</Button>
-
-                <Button variant="primary" onClick={this.edit}>Edit User</Button>
-
-                <Button variant="primary" onClick={this.logout}>Log Out</Button>
-
+                <Button variant="warning" size="md" onClick={this.team} block >Choose Team</Button>
+                <br/>
+                <Button variant="warning" size="md" onClick={this.edit} block >Edit User</Button>
+                <br/>
+                <Button variant="warning" size="md" onClick={this.logout} block >Log Out</Button>
             </div>
         );
     }

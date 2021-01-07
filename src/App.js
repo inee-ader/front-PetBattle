@@ -130,13 +130,15 @@ class App extends React.Component {
     return (
       <div className="App">
         
-        <header className="">
-          <Header/>
+        <header className="header">
+          <br/>
+          <Header page={page} />
         </header>
   
         <body className="">
           <Main addPet={this.addPet} 
               removePet={this.removePet} 
+              setPageState={this.setPageState}
               team={team} 
               pets={pets} 
               hoveredPet={hoveredPet} //state

@@ -9,20 +9,20 @@ class Footer extends Component {
     }
 
     renderSwitch = () => {
+
         const {info, page, handleClick} = this.props
+        
         switch(page) {
             // case 'login':
             //     //code 
             // break;
             case 'main menu':
-               //code
+               //code // no footer
             break; 
             case 'choose team': 
                 //code
-                return <Button variant="primary" size="lg" onClick={() => {
-                    handleClick()
-                    this.battle()
-                }}>BATTLE</Button> // creates everything
+                return <Button variant="warning" size="md" block onClick={() => {handleClick()
+                    this.battle()}}>BATTLE</Button> 
             break;
             case 'battle': 
                 //code
@@ -39,19 +39,12 @@ class Footer extends Component {
     render() {
         return (
             <div>
+                <br/>
                 {this.renderSwitch()}
             </div>
         );
     }
 }
-
-// start battle button - main menu page
-
-        // BATTLE button - chose team page
-
-        // during battle ability buttons
-
-        // back to menu button & choose team - post battle page
 
 export default Footer;
 

@@ -21,7 +21,7 @@ class TeamContainer extends Component {
         return (
            
             <div>
-                <h3>Team Container</h3>
+                {/* <h3>Team Container</h3> */}
                 <div className="">
                     {this.makeTeam()}
                 </div>
