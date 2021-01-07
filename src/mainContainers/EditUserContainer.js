@@ -57,7 +57,7 @@ class EditUserContainer extends Component {
     }
     
     componentDidMount() {
-        // console.log("in edit user",this.props.userID)
+        this.props.setPageState('edit user')
         fetch(`${BASEURL}/users/${this.props.userID}`)
         .then(res => res.json())
         .then(data => {
@@ -68,7 +68,6 @@ class EditUserContainer extends Component {
                 alias: data.alias
             })
         })
-     
     }
 
     render() {

@@ -18,6 +18,10 @@ class MainMenuContainer extends Component {
         this.props.history.push("/")
     }
 
+    componentDidMount(){
+        this.props.setPageState('main menu')
+    }
+
     render() {
         return (
             <div className="main-menu-btns">

@@ -120,7 +120,7 @@ header{
   position: fixed;
   top: 15%; 
   left: 75%;
-  width: 250px;
+  width: 241px;
   height: 650px;
 }
 
@@ -136,7 +136,7 @@ header{
   margin-left: auto;
   margin-right: auto;
 }
-#team-card{
+#pet-card{
   margin-bottom: 20px;
   margin-top: 10px;
 }

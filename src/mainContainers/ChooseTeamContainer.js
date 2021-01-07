@@ -12,6 +12,10 @@ import Container from 'react-bootstrap/Container'
 
 class ChooseTeamContainer extends Component {
 
+    componentDidMount(){
+        this.props.setPageState('choose team')
+    }
+    
     render() {
         const {pets, removePet, addPet, team, hoveredPet, setHoveredPet} = this.props
 

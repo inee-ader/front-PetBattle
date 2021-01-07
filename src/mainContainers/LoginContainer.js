@@ -19,6 +19,10 @@ class LoginContainer extends Component {
         })
       }
 
+      componentDidMount(){
+        this.props.setPageState('')
+      }
+
     render() {
         return (
             <form onSubmit={this.handleSubmit}>

@@ -11,7 +11,7 @@ class App extends React.Component {
   state = {
     currentUser: [],
     pets: [],
-    page: "",
+    page: "login",
     footerInfo: {},
     userID: "",
     team: [], 

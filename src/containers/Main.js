@@ -14,13 +14,13 @@ class Main extends Component {
     renderForm = (routerProps) => {
         if(routerProps.location.pathname === "/"){
 
-          return <LoginContainer handleLogin={this.handleLogin} />
-
+          return <LoginContainer setPageState={this.props.setPageState} handleLogin={this.handleLogin} />
+        
         } else if (routerProps.location.pathname === "/signup"){
             
           return <SignUpContainer handleSubmit={this.handleSignup} /> 
+        //   this.props.setPageState('sign up')
         }
-        this.props.setPageState('sign up')
     }
 
     chooseTeam = (routerProps) => {
@@ -28,6 +28,7 @@ class Main extends Component {
 
         if(routerProps.location.pathname === "/chooseTeam"){
           return <ChooseTeamContainer 
+                setPageState={this.props.setPageState}
                 addPet={addPet} 
                 removePet={removePet} 
                 team={team} 
@@ -36,42 +37,42 @@ class Main extends Component {
                 setHoveredPet={setHoveredPet}
             />
         } 
-        setPageState('choose team')
     }
 
     main = (routerProps) => {
         if(routerProps.location.pathname === "/main"){
             return <MainMenuContainer 
-                setPageState={this.setPageState}
+                setPageState={this.props.setPageState}
                 history={this.props.history}
-              />
+            />
         } 
-        this.props.setPageState('main menu')
+       
     }
 
     battle = (routerProps) => {
         if(routerProps.location.pathname === "/battle"){
             return <BattleContainer 
+                setPageState={this.props.setPageState}
                 history={this.props.history}
                 currentGame={this.props.currentGame}
               />
         } 
-        this.props.setPageState('battle')
     }
 
     editUser = (routerProps) => {
         if(routerProps.location.pathname === "/editUser"){
             return <EditUserContainer 
+                setPageState={this.props.setPageState}
                 history={this.props.history}
                 userID={this.props.userID}
               />
         } 
-        this.props.setPageState('edit user')
+
     }
 
     handleLogin = (info) => {
         this.handleAuthFetch(info, 'http://localhost:3000/login')
-        this.props.setPageState('login')
+        // this.props.setPageState('login')
     }
 
     handleAuthFetch = (info, request) => {  
