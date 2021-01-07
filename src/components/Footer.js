@@ -3,13 +3,20 @@ import Button from 'react-bootstrap/Button';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
 class Footer extends Component {
-
+    
     battle = () => {
         this.props.setPageState("battle")
     }
 
+    something = () => {
+        if(this.props.attackingPetMoves.abilities) {
+             return JSON.parse(this.props.attackingPetMoves.abilities)
+        }
+    }
+
     renderSwitch = () => {
-        const {info, page, handleClick} = this.props
+        const {info, page, handleClick, attackingPetMoves} = this.props
+
         switch(page) {
             // case 'login':
             //     //code 
@@ -25,8 +32,18 @@ class Footer extends Component {
                 }}>BATTLE</Button> // creates everything
             break;
             case 'battle': 
-                //code
-                return <h5>Sup</h5>
+            //code
+                let abilities = this.something()
+                console.log(abilities)
+                if(abilities !== undefined) {
+                return <div>
+                            <Button variant="primary" size="lg" onClick={() => {}}>{abilities[0]}</Button>
+                            <Button variant="primary" size="lg" onClick={() => {}}>{abilities[1]}</Button>
+                            <Button variant="primary" size="lg" onClick={() => {}}>{abilities[2]}</Button>
+                            <Button variant="primary" size="lg" onClick={() => {}}>{abilities[3]}</Button>
+                            {/* <Button variant="primary" size="lg" onClick={() => {}}>ATTACK</Button> */}
+                        </div>
+                }
             break;
             case 'battle end': 
                 //code

@@ -46,10 +46,13 @@ class Main extends Component {
     }
 
     battle = (routerProps) => {
+        const {history, currentGame, setAttackingPetMoves, setHoveredPet} = this.props
         if(routerProps.location.pathname === "/battle"){
             return <BattleContainer 
-                history={this.props.history}
-                currentGame={this.props.currentGame}
+                history={history}
+                currentGame={currentGame}
+                setAttackingPetMoves={setAttackingPetMoves}
+                setHoveredPet={setHoveredPet}
               />
           } 
     }
