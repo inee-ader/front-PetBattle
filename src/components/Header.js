@@ -7,23 +7,29 @@ class Header extends Component {
         const {info, page} = this.props
 
         switch(page) {
-            // case 'login':
-            //     return <h1>Login</h1> 
-            // break;
+         
             case 'main menu':
-               return <h1>Main Menu</h1>
+               return <h1>MAIN MENU</h1>
             break; 
+            case 'edit user': 
+                return <h1>EDIT USER</h1>
+            break;
+            case 'sign up': 
+                return <h1>SIGN UP</h1>
+            break;
             case 'choose team': 
-               return <h1>Choose Your Team</h1>
+               return <h1>CHOOSE YOUR TEAM</h1>
             break;
             case 'battle': 
-                return <h1>Battle</h1>
+                return <h1>BATTLE</h1>
             break;
             case 'battle end': 
-                return <h1>Battle Summary</h1>
+                return <h1>BATTLE SUMMARY</h1>
             break;
             default: 
-            
+                return <h1>LOGIN</h1>
+              
+       
         }
     }
 

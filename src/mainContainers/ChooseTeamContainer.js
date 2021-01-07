@@ -12,6 +12,10 @@ import Container from 'react-bootstrap/Container'
 
 class ChooseTeamContainer extends Component {
 
+    componentDidMount(){
+        this.props.setPageState('choose team')
+    }
+    
     render() {
         const {pets, removePet, addPet, team, hoveredPet, setHoveredPet} = this.props
 
@@ -20,7 +24,7 @@ class ChooseTeamContainer extends Component {
             <div>
                 <Container>
                     {/* <h4>Your Team</h4> */}
-                    <div className="">
+                    <div className="team-box">
                         <TeamContainer 
                             team={team}
                             handleClick={removePet}
@@ -28,7 +32,7 @@ class ChooseTeamContainer extends Component {
                         />
                     </div>
 
-                    <div className="">
+                    <div className="select-box">
                         {/* <h4>Select Pets</h4> */}
                         <SelectPetsContainer 
                             pets={pets}
@@ -36,7 +40,7 @@ class ChooseTeamContainer extends Component {
                             setHoveredPet={setHoveredPet}
                         />
                     </div>
-                    <div>
+                    <div className="hover-pet">
                         {hoveredPet.name ? <PetIconCard hoveredPet={hoveredPet} /> : null }
                         <br/>
                         {hoveredPet.name ? <PetStatsCard hoveredPet={hoveredPet} /> : null }

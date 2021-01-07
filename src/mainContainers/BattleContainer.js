@@ -20,6 +20,7 @@ class BattleContainer extends Component {
 
     componentDidMount() {    
         this.setBattleState()
+        this.props.setPageState('battle')
     }
 
     setBattleState = () => {

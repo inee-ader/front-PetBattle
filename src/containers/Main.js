@@ -14,19 +14,21 @@ class Main extends Component {
     renderForm = (routerProps) => {
         if(routerProps.location.pathname === "/"){
 
-          return <LoginContainer title="Login Form" handleLogin={this.handleLogin} />
-
+          return <LoginContainer setPageState={this.props.setPageState} handleLogin={this.handleLogin} />
+        
         } else if (routerProps.location.pathname === "/signup"){
             
-          return <SignUpContainer title="Sign Up Form" handleSubmit={this.handleSignup} />
-
+          return <SignUpContainer handleSubmit={this.handleSignup} /> 
+        //   this.props.setPageState('sign up')
         }
     }
+
     chooseTeam = (routerProps) => {
-        const {pets, team, addPet, removePet, hoveredPet, setHoveredPet} = this.props
+        const {pets, team, addPet, removePet, hoveredPet, setHoveredPet, setPageState, page} = this.props
 
         if(routerProps.location.pathname === "/chooseTeam"){
           return <ChooseTeamContainer 
+                setPageState={this.props.setPageState}
                 addPet={addPet} 
                 removePet={removePet} 
                 team={team} 
@@ -40,35 +42,40 @@ class Main extends Component {
     main = (routerProps) => {
         if(routerProps.location.pathname === "/main"){
             return <MainMenuContainer 
+                setPageState={this.props.setPageState}
                 history={this.props.history}
-              />
-          } 
+            />
+        } 
+       
     }
 
     battle = (routerProps) => {
         const {history, currentGame, setAttackingPetMoves, setHoveredPet} = this.props
         if(routerProps.location.pathname === "/battle"){
             return <BattleContainer 
+                setPageState={this.props.setPageState}
                 history={history}
                 currentGame={currentGame}
                 setAttackingPetMoves={setAttackingPetMoves}
                 setHoveredPet={setHoveredPet}
               />
-          } 
+        } 
     }
 
     editUser = (routerProps) => {
         if(routerProps.location.pathname === "/editUser"){
             return <EditUserContainer 
+                setPageState={this.props.setPageState}
                 history={this.props.history}
                 userID={this.props.userID}
               />
-          } 
+        } 
+
     }
 
     handleLogin = (info) => {
-        console.log('login')
         this.handleAuthFetch(info, 'http://localhost:3000/login')
+        // this.props.setPageState('login')
     }
 
     handleAuthFetch = (info, request) => {  

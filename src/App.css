@@ -37,27 +37,35 @@
   }
 }
 
+
+
 body {
   background: rgb(154,106,5);
   background: radial-gradient(circle, rgba(154,106,5,1) 1%, rgba(51,22,3,1) 50%);
+  font-family: 'IM Fell English SC', serif;
 }
 
 .container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 20px;
+  font-family: 'IM Fell English SC', serif;
 }
 
 .pet-card {
   display:flex; 
   border: 1px solid black;
+  font-family: 'IM Fell English SC', serif;
 }
 .pet-card img{
   padding: 7%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .main-menu-btns{
   margin: 0;
+  font-family: 'IM Fell English SC', serif;
   position: absolute;
   top: 30%;
   left: 50%;
@@ -66,11 +74,69 @@ body {
 }
 
 footer{
-  top: 75%;
+  top: 90%;
   left: 50%;
   position: absolute;
+  font-family: 'IM Fell English SC', serif;
 }
 
 header{
   color: white;
+  font-family: 'IM Fell English SC', serif;
+  border: 5px solid gold; 
+  border-style: outset;
+}
+
+.team-box{
+  padding: 30px;
+  padding-top: 5%;
+  border: 5px solid gold; 
+  border-radius: 5px;
+  border-style: outset;
+  position: fixed;
+  top: 15%; 
+  left: 5%;
+  height: 650px;
+  width: 170px;
+}
+
+.select-box{
+  padding: 30px;
+  border: 5px solid gold; 
+  border-radius: 5px;
+  border-style: outset;
+  position: fixed;
+  top: 15%; 
+  left: 20%;
+  width: 710px;
+  height: 650px;
+}
+
+.hover-pet{
+  padding: 15px;
+  border: 5px solid gold; 
+  border-style: outset;
+  border-radius: 5px;
+  position: fixed;
+  top: 15%; 
+  left: 75%;
+  width: 241px;
+  height: 650px;
+}
+
+#icon-card{
+  height: 360px;
+  padding: 10px;
+}
+#stats-card{
+  padding: 10px;
+  height: 210px;
+}
+#hover-icon{
+  margin-left: auto;
+  margin-right: auto;
+}
+#pet-card{
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
