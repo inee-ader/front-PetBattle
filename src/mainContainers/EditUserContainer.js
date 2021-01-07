@@ -88,7 +88,7 @@ class EditUserContainer extends Component {
                     <input type="submit" value="Submit"/>
                 </form>
 
-                <Button variant="primary" onClick={this.delete}>Delete User</Button>
+                <Button variant="warning" onClick={this.delete}>Delete User</Button>
             </div>
 
             

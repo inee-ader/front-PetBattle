@@ -8,7 +8,7 @@ const PetStatsCard = props => {
         // debugger
     return (
             
-            <Card className="bg-dark text-white border-warning variant-top" style={{width: "150px"}}>
+            <Card id="stats-card" className="bg-dark text-white border-warning variant-top" style={{width: "200px"}}>
                 <strong>Name: </strong> {props.hoveredPet.name}
                 <br/>
                 <strong>Type: </strong> {props.hoveredPet.pet_type}

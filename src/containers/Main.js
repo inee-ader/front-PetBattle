@@ -14,16 +14,17 @@ class Main extends Component {
     renderForm = (routerProps) => {
         if(routerProps.location.pathname === "/"){
 
-          return <LoginContainer title="Login Form" handleLogin={this.handleLogin} />
+          return <LoginContainer handleLogin={this.handleLogin} />
 
         } else if (routerProps.location.pathname === "/signup"){
             
-          return <SignUpContainer title="Sign Up Form" handleSubmit={this.handleSignup} />
-
+          return <SignUpContainer handleSubmit={this.handleSignup} /> 
         }
+        this.props.setPageState('sign up')
     }
+
     chooseTeam = (routerProps) => {
-        const {pets, team, addPet, removePet, hoveredPet, setHoveredPet} = this.props
+        const {pets, team, addPet, removePet, hoveredPet, setHoveredPet, setPageState, page} = this.props
 
         if(routerProps.location.pathname === "/chooseTeam"){
           return <ChooseTeamContainer 
@@ -35,14 +36,17 @@ class Main extends Component {
                 setHoveredPet={setHoveredPet}
             />
         } 
+        setPageState('choose team')
     }
 
     main = (routerProps) => {
         if(routerProps.location.pathname === "/main"){
             return <MainMenuContainer 
+                setPageState={this.setPageState}
                 history={this.props.history}
               />
-          } 
+        } 
+        this.props.setPageState('main menu')
     }
 
     battle = (routerProps) => {
@@ -51,7 +55,8 @@ class Main extends Component {
                 history={this.props.history}
                 currentGame={this.props.currentGame}
               />
-          } 
+        } 
+        this.props.setPageState('battle')
     }
 
     editUser = (routerProps) => {
@@ -60,12 +65,13 @@ class Main extends Component {
                 history={this.props.history}
                 userID={this.props.userID}
               />
-          } 
+        } 
+        this.props.setPageState('edit user')
     }
 
     handleLogin = (info) => {
-        console.log('login')
         this.handleAuthFetch(info, 'http://localhost:3000/login')
+        this.props.setPageState('login')
     }
 
     handleAuthFetch = (info, request) => {  

@@ -11,7 +11,7 @@ class Footer extends Component {
     renderSwitch = () => {
 
         const {info, page, handleClick} = this.props
-        
+
         switch(page) {
             // case 'login':
             //     //code 
@@ -21,7 +21,7 @@ class Footer extends Component {
             break; 
             case 'choose team': 
                 //code
-                return <Button variant="warning" size="md" block onClick={() => {handleClick()
+                return <Button variant="warning" size="lg" block onClick={() => {handleClick()
                     this.battle()}}>BATTLE</Button> 
             break;
             case 'battle': 

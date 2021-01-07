@@ -11,7 +11,7 @@ class App extends React.Component {
   state = {
     currentUser: [],
     pets: [],
-    page: "choose team",
+    page: "",
     footerInfo: {},
     userID: "",
     team: [], 
@@ -139,6 +139,7 @@ class App extends React.Component {
           <Main addPet={this.addPet} 
               removePet={this.removePet} 
               setPageState={this.setPageState}
+              page={page}
               team={team} 
               pets={pets} 
               hoveredPet={hoveredPet} //state

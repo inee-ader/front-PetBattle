@@ -10,6 +10,7 @@ const PetCard = props => {
 
     return (
         <Card 
+            id="team-card"
             className="bg-dark text-white border-warning variant-top" 
             style={{width: "100px"}} 
             onClick={()=>props.handleClick(props.pet)} 
