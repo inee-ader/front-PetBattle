@@ -16,7 +16,8 @@ class App extends React.Component {
     userID: "",
     team: [], 
     hoveredPet: {},
-    currentGame: ""
+    currentGame: "",
+    attackingPetMoves: {}
   }
 
   componentDidMount() {
@@ -47,6 +48,12 @@ class App extends React.Component {
     // fetch(`${BASEURL}/users/${this.state.userID}`)
     // .then() // this fetches from our api
 
+  }
+ 
+  setAttackingPetMoves = (attackingPetMoves) => {
+    this.setState({
+      attackingPetMoves: attackingPetMoves
+    })
   }
 
   setUserIDState = (id) => {
@@ -148,11 +155,14 @@ class App extends React.Component {
               setAPIPetsState={this.setAPIPetsState}
               userID={userID}
               currentGame={currentGame}
+              setAttackingPetMoves={this.setAttackingPetMoves}
               />
         </body>
-  
+         {/* Object.keys(obj).length === 0 && obj.constructor === Object */}
+        
         <footer className="">
-          <Footer info={footerInfo} page={page} handleClick={this.startBattle} history={this.props.history} setPageState={this.setPageState}/>
+          <Footer info={footerInfo} page={page} handleClick={this.startBattle} history={this.props.history} setPageState={this.setPageState} attackingPetMoves={this.state.attackingPetMoves}
+          />
         </footer>
         
       </div>
@@ -161,3 +171,6 @@ class App extends React.Component {
 }
 
 export default withRouter(App); 
+
+// attackingPetMoves={Object.keys(this.state.attackingPetMoves).length === 0 && this.state.attackingPetMoves.constructor === Object ? this.state.attackingPetMoves : null}
+
