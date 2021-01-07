@@ -3,7 +3,11 @@ import Button from 'react-bootstrap/Button';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
 class Footer extends Component {
-    
+
+    battle = () => {
+        this.props.setPageState("battle")
+    }
+
     renderSwitch = () => {
         const {info, page, handleClick} = this.props
         switch(page) {
@@ -15,10 +19,14 @@ class Footer extends Component {
             break; 
             case 'choose team': 
                 //code
-                return <Button variant="primary" size="lg" onClick={() => handleClick()}>BATTLE</Button> // creates everything
+                return <Button variant="primary" size="lg" onClick={() => {
+                    handleClick()
+                    this.battle()
+                }}>BATTLE</Button> // creates everything
             break;
             case 'battle': 
                 //code
+                return <h5>Sup</h5>
             break;
             case 'battle end': 
                 //code

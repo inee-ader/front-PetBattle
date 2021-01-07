@@ -41,7 +41,15 @@ class Main extends Component {
         if(routerProps.location.pathname === "/main"){
             return <MainMenuContainer 
                 history={this.props.history}
-                
+              />
+          } 
+    }
+
+    battle = (routerProps) => {
+        if(routerProps.location.pathname === "/battle"){
+            return <BattleContainer 
+                history={this.props.history}
+                currentGame={this.props.currentGame}
               />
           } 
     }
@@ -115,7 +123,7 @@ class Main extends Component {
           })
 
         this.props.setUserIDState(data.user.id)
-
+        
         })
         .then(() => {
             this.props.setAPIPetsState()

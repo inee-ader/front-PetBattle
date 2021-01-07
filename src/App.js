@@ -1,5 +1,6 @@
 import React from 'react';
-import {BrowserRouter} from 'react-router-dom'
+import {Route, Switch, withRouter} from 'react-router-dom'
+// import {BrowserRouter} from 'react-router-dom'
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -7,7 +8,6 @@ import Main from './containers/Main';
 const BASEURL = 'http://localhost:3000'
 
 class App extends React.Component {
-
   state = {
     currentUser: [],
     pets: [],
@@ -15,7 +15,8 @@ class App extends React.Component {
     footerInfo: {},
     userID: "",
     team: [], 
-    hoveredPet: {}
+    hoveredPet: {},
+    currentGame: ""
   }
 
   componentDidMount() {
@@ -76,7 +77,7 @@ class App extends React.Component {
     this.setState(prevState=> ({
       team: prevState.team.filter(petItem => petItem !== pet)
     }))
-  }
+  } 
 
   setHoveredPet = (pet) => {
     this.setState({hoveredPet: pet})
@@ -89,18 +90,19 @@ class App extends React.Component {
     // create game
     // create boss
   }
-
+  
   createGame = (id, team) => {
-    console.log(id, team)
+    // console.log(id, team)
     // debugger
     fetch(`${BASEURL}/newgame`, this.configPetObj(id, team) )
     .then(resp => resp.json())
     .then(json => {
-      console.log(json)
-    })
+      // console.log(json)
+      this.setState({
+        currentGame: json.id
+      })
+    }).then(() => {this.props.history.push("/battle")})     
   }
-
-
 
   configPetObj = (id, team) => {
    
@@ -117,8 +119,14 @@ class App extends React.Component {
     }
   }
 
+  setPageState = (page) => {
+    this.setState({
+      page: page
+    })
+  }
+
   render() {
-    const {pets, team, hoveredPet, footerInfo, page, userID} = this.state
+    const {pets, team, hoveredPet, footerInfo, page, userID, currentGame} = this.state
     return (
       <div className="App">
         
@@ -127,7 +135,6 @@ class App extends React.Component {
         </header>
   
         <body className="">
-        <BrowserRouter>
           <Main addPet={this.addPet} 
               removePet={this.removePet} 
               team={team} 
@@ -137,12 +144,12 @@ class App extends React.Component {
               setUserIDState={this.setUserIDState}
               setAPIPetsState={this.setAPIPetsState}
               userID={userID}
+              currentGame={currentGame}
               />
-        </BrowserRouter>
         </body>
   
         <footer className="">
-          <Footer info={footerInfo} page={page} handleClick={this.startBattle}/>
+          <Footer info={footerInfo} page={page} handleClick={this.startBattle} history={this.props.history} setPageState={this.setPageState}/>
         </footer>
         
       </div>
@@ -150,4 +157,4 @@ class App extends React.Component {
   }
 }
 
-export default App; 
+export default withRouter(App); 
