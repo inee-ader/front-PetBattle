@@ -8,7 +8,7 @@ class Footer extends Component {
         this.props.setPageState("battle")
     }
 
-    something = () => {
+    convertString = () => {
         if(this.props.attackingPetMoves.abilities) {
              return JSON.parse(this.props.attackingPetMoves.abilities)
         }
@@ -33,7 +33,7 @@ class Footer extends Component {
             break;
             case 'battle': 
             //code
-                let abilities = this.something()
+                let abilities = this.convertString()
                 console.log(abilities)
                 if(abilities !== undefined) {
                 return <div>
