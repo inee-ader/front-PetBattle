@@ -19,7 +19,7 @@ class ChooseTeamContainer extends Component {
 
             <div>
                 <Container>
-                    <h4>Choose Team</h4>
+                    {/* <h4>Your Team</h4> */}
                     <div className="">
                         <TeamContainer 
                             team={team}
@@ -29,7 +29,7 @@ class ChooseTeamContainer extends Component {
                     </div>
 
                     <div className="">
-                        <h4>Select Pets</h4>
+                        {/* <h4>Select Pets</h4> */}
                         <SelectPetsContainer 
                             pets={pets}
                             handleClick={addPet}
@@ -38,8 +38,7 @@ class ChooseTeamContainer extends Component {
                     </div>
                     <div>
                         {hoveredPet.name ? <PetIconCard hoveredPet={hoveredPet} /> : null }
-                    </div>
-                    <div>
+                        <br/>
                         {hoveredPet.name ? <PetStatsCard hoveredPet={hoveredPet} /> : null }
                     </div>
                 </Container>

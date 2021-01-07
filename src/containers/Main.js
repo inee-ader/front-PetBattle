@@ -118,7 +118,7 @@ class Main extends Component {
         })
         .then(res => res.json())
         .then(data => {
-            console.log("inside the fetch")
+            console.log("inside the fetch", data)
         //   stores the user in state, but stores the token in localStorage
           this.setState({name: data.user.name}, () => {
             localStorage.setItem('jwt', data.token)

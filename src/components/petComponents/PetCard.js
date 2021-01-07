@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Card from 'react-bootstrap/Card'
 // hover over shows description
 // state in pet card for hover? state for currently clicked? 
 
@@ -9,10 +9,15 @@ const PetCard = props => {
     // 
 
     return (
-        <div className="pet-card" onClick={()=>props.handleClick(props.pet)} onMouseEnter={()=>props.setHoveredPet(props.pet)} >
-            <h4>{props.pet.name}</h4>
-            <img src={props.pet.img_url} alt="pet icon" />
-        </div>
+        <Card 
+            className="bg-dark text-white border-warning variant-top" 
+            style={{width: "100px"}} 
+            onClick={()=>props.handleClick(props.pet)} 
+            onMouseEnter={()=>props.setHoveredPet(props.pet)} 
+        >
+            <Card.Img src={props.pet.img_url} variant="top" alt="pet icon" />
+            <h6>{props.pet.name}</h6>
+        </Card>
     );
 }
 

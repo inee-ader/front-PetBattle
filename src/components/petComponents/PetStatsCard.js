@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
 
 const PetStatsCard = props => {
 
@@ -7,18 +8,13 @@ const PetStatsCard = props => {
         // debugger
     return (
             
-            <div>
-                
-                name: {props.hoveredPet.name}
+            <Card className="bg-dark text-white border-warning variant-top" style={{width: "150px"}}>
+                <strong>Name: </strong> {props.hoveredPet.name}
                 <br/>
-                description: {props.hoveredPet.description}
+                <strong>Type: </strong> {props.hoveredPet.pet_type}
                 <br/>
-                type: {props.hoveredPet.pet_type}
-                <br/>
-                abilities: {
-                JSON.parse(props.hoveredPet.abilities).map(ability => { return ability})} 
-            
-            </div>
+                <strong>Abilities: </strong> {JSON.parse(props.hoveredPet.abilities).map(ability => { return ability + ' '})} 
+            </Card>
         );
     } else { return null }
 }
