@@ -39,7 +39,6 @@ class Footer extends Component {
     render() {
         return (
             <div>
-                <br/>
                 {this.renderSwitch()}
             </div>
         );
