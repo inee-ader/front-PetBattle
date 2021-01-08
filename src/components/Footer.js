@@ -29,6 +29,7 @@ class Footer extends Component {
             case 'battle': 
                 let abilities = this.convertString()
                 if(abilities !== undefined) {
+
                 return <div className="battle-btns">
                             <Button name="0" type="submit" value="0" variant="warning" size="lg" onClick={(e) => {
                                 setBattleButtonState(e.target.name)
