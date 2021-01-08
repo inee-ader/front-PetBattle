@@ -326,20 +326,20 @@ class BattleContainer extends Component {
     render() {
         return (
             <div>
-                <h3>Battle</h3>
-                <div className="">
+              
+                <div className="battle-team">
                     <TeamContainer team={this.state.team} setHoveredPet={this.props.setHoveredPet} handleClick={this.props.doNothing}/>
                 </div>
 
-                <div className="">
+                <div className="active-pet">
                     <PetCard attackingPet={this.state.attackingPet} setHoveredPet={this.props.setHoveredPet} handleClick={this.props.doNothing}/>
                 </div>
 
-                <div className="">
-                    <Boss/>
+                <div className="boss">
+                    <Boss name={this.state.boss.name} moves={this.state.boss.abilities} hp={this.state.bossHp}/>
                 </div>
 
-                <div className="">
+                <div className="script-box">
                     <Script script={this.state.script}/>
                 </div>
 

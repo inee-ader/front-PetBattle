@@ -73,7 +73,7 @@ body {
 
 footer{
   top: 90%;
-  left: 50%;
+  left: 36%;
   position: absolute;
   font-family: 'IM Fell English SC', serif;
 }
@@ -86,6 +86,19 @@ header{
 }
 
 .team-box{
+  padding: 30px;
+  padding-top: 5%;
+  border: 5px solid gold; 
+  border-radius: 5px;
+  border-style: outset;
+  position: fixed;
+  top: 15%; 
+  left: 5%;
+  height: 650px;
+  width: 170px;
+}
+
+.battle-team{
   padding: 30px;
   padding-top: 5%;
   border: 5px solid gold; 
@@ -122,6 +135,25 @@ header{
   height: 650px;
 }
 
+.active-pet{
+  padding: 15px;
+  border: 5px solid gold;
+  border-style: outset;
+  border-radius: 5px;
+  position: fixed;
+  top: 37%;
+  left: 22%;
+  width: 11%;
+  height: 26%;
+  color: white;
+}
+
+.active-pet img{
+  padding: 7%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #icon-card{
   height: 360px;
   padding: 10px;
@@ -137,4 +169,34 @@ header{
 #pet-card{
   margin-bottom: 20px;
   margin-top: 10px;
+}
+
+.boss{
+  padding: 15px;
+  border: 5px solid gold;
+  border-style: outset;
+  border-radius: 5px;
+  position: fixed;
+  top: 29%;
+  left: 70%;
+  width: 27%;
+  height: 42%;
+}
+#boss-card{
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+}
+
+.script-box{
+  padding: 15px;
+  border: 1px solid gold;
+  border-style: dotted;
+  border-radius: 5px;
+  position: fixed;
+  top: 37%;
+  left: 37%;
+  width: 30%;
+  height: 26%;
+  color: white;
 }

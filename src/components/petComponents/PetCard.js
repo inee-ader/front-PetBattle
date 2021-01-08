@@ -8,7 +8,7 @@ const PetCard = props => {
     if(props.attackingPet) {
         return ( 
             <div>
-                <h1>ATTACK PETTTTT</h1>
+                <h5>ACTIVE PET</h5>
                 <Card 
                     id="pet-card"
                     className="bg-dark text-white border-warning variant-top" 
