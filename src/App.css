@@ -147,12 +147,12 @@ header{
   height: 26%;
   color: white;
 }
+
 .active-pet img{
   padding: 7%;
   margin-left: auto;
   margin-right: auto;
 }
-
 
 #icon-card{
   height: 360px;

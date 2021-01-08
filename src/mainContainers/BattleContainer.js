@@ -133,11 +133,11 @@ class BattleContainer extends Component {
                 </div>
 
                 <div className="boss">
-                    <Boss name={this.state.boss.name} moves={this.state.boss.abilities}/>
+                    <Boss name={this.state.boss.name} moves={this.state.boss.abilities} hp={this.state.bossHp}/>
                 </div>
 
                 <div className="script-box">
-                        <Script script={this.state.script}/>
+                    <Script script={this.state.script}/>
                 </div>
 
             </div>
