@@ -71,3 +71,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 **Front End Setup Branch added**
+
+// link to Michael, Kevin, Inee github 
+// link to front and back end
+
+// back-end bundle install, rails db:migrate, rails s
+// front-end npm install/yarn, npm start/ yarn start
+
+// intro: game purpose, user chooses 3 pets to battle a boss. 
+
+// user stories: user CRUD, logout, choose team and battle
+
+// stretch: rewarded gold after winning, buy pets, unlock new pets, pets gain xp, pets level, game modes, pet type influences attack/crit, boss type?, hp bars for battle, 
+
+// contributing: 
+
+// tools: Ruby on Rails, JS, React
+
