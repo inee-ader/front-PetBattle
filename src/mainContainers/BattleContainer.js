@@ -10,34 +10,77 @@ class BattleContainer extends Component {
         boss:[],
         teamID: "",
         team:[],
-        win: "",
+        win: null,
         exp: "",
         gold: "",
         turnOrder: [],
         attackingPet: {},
-        script:""
+        script:"",
+        bossHP: 0,
+        deadPets: []
     }
 
     componentDidMount() {    
+
+       
         this.setBattleState()
         this.props.setPageState('battle')
+
+        //update script with like 'a manticore enters, FIGHT'
+        
+
+        // if buttonPressState != ""
+        //     run dmg stuff
+        //     then run boss' turn
     }
 
-    // componentDidUpdate() {
-    //     we have a button for abilities in 
-    //     switch(this.props.battleButtonPressed) {
-    //         case '1': 
-    //         break;
-    //         case '2':
-    //         break;
-    //         case '3':
-    //         break;
+  
 
-    //         default: 
-    //         break
-    //     }
 
-    // }
+
+    componentDidUpdate() {
+
+        if (this.props.battleButtonPressed) {
+
+            this.doPetTurn()
+
+            console.log("hi in if statement")
+
+            // this.props.setBattleButtonState("")
+            
+            this.setState({
+                bossHP: this.state.bossHP - this.petDamageCalculator(this.props.battleButtonPressed)
+            })
+
+            //update script
+
+            // how to disable buttons after 1 click
+            // do boss action
+
+            this.doBossTurn() // also undisable the button
+
+        } else {
+            return
+        }
+
+        
+        
+        // switch(this.props.battleButtonPressed) {
+
+        //     case '1': 
+        //     break;
+        //     case '2':
+        //     break;
+        //     case '3':
+        //     break;
+
+        //     default: 
+        //     break
+        // }
+
+    }
+
+
     setBattleState = () => {
         fetch(`${BASEURL}/games/${this.props.currentGame}`)
         .then(res => res.json())
@@ -47,7 +90,9 @@ class BattleContainer extends Component {
                 teamID: data.team.id,
                 win: data.win,
                 exp: data.exp,
-                gold: data.gold
+                gold: data.gold,
+                bossHP: data.bosses[0].hp,
+                script: "A ferocious manticore appears... FIGHT"
             })
         }).then(() => {
             this.setTeam()
@@ -69,7 +114,8 @@ class BattleContainer extends Component {
     }
 
     setTurnOrder = () => {
-        const originalOrder = [0,1,2,3]
+        const originalOrder = [0,1,2]
+        // const originalOrder = [0,1,2,3]
         let turnOrder = []
         for(let i = originalOrder.length; i > 0; i--) {
             let temp = Math.floor(Math.random() * Math.floor(i))
@@ -77,9 +123,10 @@ class BattleContainer extends Component {
             let monster;
             if(element < 3) {
                 monster = this.state.team[element]
-            } else if(element === 3) {    
-                monster = this.state.boss
-            }
+            } 
+            // else if(element === 3) {    
+            //     monster = this.state.boss
+            // }
             turnOrder.push(monster)
             this.setState({
                 turnOrder:turnOrder
@@ -99,15 +146,173 @@ class BattleContainer extends Component {
     }
     
     battleSequence = () => {
+        this.props.setBattleButtonState("")
+
+        this.doPetTurn()
+
+        this.doBossTurn()
+    }
+
+    
+
+    petDamageCalculator = (ability) => {
+
+        let damage
+
+        switch(ability) {
+            case "0":
+
+                 damage = Math.floor(Math.random() * Math.floor(25 - 3) + 4) 
+
+                return damage
+            break;
+            case "1":
+                 damage = Math.floor(Math.random() * Math.floor(15 - 9) + 10) 
+
+                if (damage % 2 === 0) {
+                    damage = damage * 2
+                }
+                return damage
+            break;
+            case "2":
+                 damage = Math.floor(Math.random() * Math.floor(30 - 1) + 2) 
+
+                return damage
+            break;
+            default:
+                 damage = Math.floor(Math.random() * Math.floor(20 - 9) + 10) 
+
+                return damage
+        }
+
+    }
+
+    doPetTurn = () => {
+
+        // this.props.setBattleButtonState("")
+
+        //check pet health
+
+        if (this.state.attackingPet.hp <= 0) {
+
+            this.handlePetDeath()
+
+        } else {
+
+            let damage = this.petDamageCalculator(this.props.battleButtonPressed)
+
+            this.setState({
+                bossHP: this.state.bossHP - damage
+            })
+
+            this.setScript(`${this.state.attackingPet.name} uses ${this.state.attackingPet.abilities[parseInt(this.props.battleButtonPressed)]} for ${damage} damage`)
+        }
+    }
+
+
+    handlePetDeath = () => {
+
+        this.setScript(`Oh no! ${this.state.attackingPet.name} has fallen!`)
+
+        if (this.state.deadPets.length === 0 ) {
+            this.setState({
+                deadPets: this.state.attackingPet,
+                attackingPet: this.state.team[this.state.turnOrder[1]]
+            })
+        } else if (this.state.deadPets.length === 1) {
+            this.setState({
+                deadPets: this.state.attackingPet,
+                attackingPet: this.state.team[this.state.turnOrder[2]]
+            })
+        } else if (this.state.deadPets.length === 2) {
+            this.setState({win: false})
+            this.handleGameLoss(this.state.win)
+        }
+
+    }
+
+    doBossTurn = () => {
+
+        let ability = Math.floor(Math.random() * Math.floor(4)).toString()
+
+        if (this.state.boss.hp <= 0) {
+
+            this.setState({win: true})
+            
+            this.handleGameEnd()
+
+        } else {
+
+            let damage = this.petDamageCalculator(this.props.battleButtonPressed)
+
+            this.setState({
+                bossHP: this.state.bossHP - damage
+            })
+
+            this.setScript(`${this.state.attackingPet.name} uses ${this.state.attackingPet.abilities[parseInt(this.props.battleButtonPressed)]} for ${damage} damage`)
+        }//  calc damage THEN update script
+
+        this.doPetTurn()
+
+    }
+
+
+    bossDamageCalculator = (ability) => {
+        
+        let damage
+
+        switch(ability) {
+            case "0":
+
+                    damage = Math.floor(Math.random() * Math.floor(20 - 3) + 4) 
+
+                return damage
+            break;
+            case "1":
+                    damage = Math.floor(Math.random() * Math.floor(30 - 9) + 10) 
+
+                if (damage % 2 === 0) {
+                    damage = damage * 2
+                }
+                return damage
+            break;
+            case "2":
+                    damage = Math.floor(Math.random() * Math.floor(40 - 1) + 2) 
+
+                return damage
+            break;
+            default:
+                    damage = Math.floor(Math.random() * Math.floor(20 - 9) + 10) 
+
+                return damage
+        }
+    
+        
+    }
+
+    setScript = (text) => {
+        this.setState({
+            script: text
+        })
+    }
+
+    handleGameEnd = (result) => {
+
+        // FETCH???
+
+        this.state.win ? this.props.history.push(`/winner`) : this.props.history.push(`/gameover`)
+        
 
     }
     
  //boss enters
  //attacking pet enters
 
+ // choose your move
 
- //choose attacking pets moves are we gonna give only the option to attack 
- // Asks to confirm attack y/n
+
+ //choose attacking pets moves
+ //updates move state  => hits our componenet did update => we do dmg math, subtract from boss hp, THEN set button press to "" 
  // does damage(sets states etc.)
  // renders text for pett damage(maybe animations and delay)
  // checks boss hp < 0

@@ -50,7 +50,7 @@ class Main extends Component {
     }
 
     battle = (routerProps) => {
-        const {history, currentGame, setAttackingPetMoves, setHoveredPet, battleButtonPressed} = this.props
+        const {history, currentGame, setAttackingPetMoves, setHoveredPet, battleButtonPressed,setBattleButtonState} = this.props
         if(routerProps.location.pathname === "/battle"){
             return <BattleContainer 
                 setPageState={this.props.setPageState}
@@ -60,6 +60,7 @@ class Main extends Component {
                 setHoveredPet={setHoveredPet}
                 battleButtonPressed={battleButtonPressed}
                 doNothing={this.doNothing}
+                setBattleButtonState={setBattleButtonState}
               />
         } 
     }
@@ -154,6 +155,8 @@ class Main extends Component {
                     <Route path="/main" exact component={this.main} />
                     <Route path="/chooseTeam" exact component={this.chooseTeam} />
                     <Route path="/editUser" exact component={this.editUser} />
+                    <Route path="/winner" exact component={this.winner}/>
+                    <Route path="/gameover" exact component={this.gameOver} />
                 </Switch>
             </div>
         );

@@ -164,6 +164,7 @@ class App extends React.Component {
               currentGame={currentGame}
               setAttackingPetMoves={this.setAttackingPetMoves}
               battleButtonPressed={battleButtonPressed}
+              setBattleButtonState={this.setBattleButtonState}
               />
         </div>
          {/* Object.keys(obj).length === 0 && obj.constructor === Object */}

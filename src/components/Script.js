@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Script = () => {
+const Script = (props) => {
     return (
         <div>
-            <h1>battle script</h1>
+            <h5>{props.script}</h5>
         </div>
     );
 }
