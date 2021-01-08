@@ -9,7 +9,6 @@ class Winner extends Component {
         this.props.setPageState("main menu")
         this.props.history.push("/main")
     }
-
     render() {
         return ( 
             <div>

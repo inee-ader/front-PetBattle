@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import PetCard from '../components/petComponents/PetCard';
 
-class TeamContainer extends Component {
-
-    // const {team, handleClick} = this.props
-    
+class TeamContainer extends Component {    
     makeTeam = () => {  
         if(this.props.team){
             return this.props.team.map(pet => {
@@ -19,9 +16,7 @@ class TeamContainer extends Component {
     }
     render() {
         return (
-           
             <div>
-                {/* <h3>Team Container</h3> */}
                 <div className="">
                     {this.makeTeam()}
                 </div>

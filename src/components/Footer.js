@@ -20,21 +20,14 @@ class Footer extends Component {
         const {info, page, handleClick, setBattleButtonState} = this.props
 
         switch(page) {
-            // case 'login':
-            //     //code 
-            // break;
             case 'main menu':
-               //code // no footer
             break; 
             case 'choose team': 
-                //code
                 return <Button variant="warning" size="lg" block onClick={() => {handleClick()
                     this.battle()}}>BATTLE</Button> 
             break;
             case 'battle': 
-            //code
                 let abilities = this.convertString()
-                // console.log(abilities)
                 if(abilities !== undefined) {
                 return <div className="battle-btns">
                             <Button name="0" type="submit" value="0" variant="warning" size="lg" onClick={(e) => {
@@ -49,18 +42,14 @@ class Footer extends Component {
                             <Button name="3" type="submit" value="3" variant="warning" size="lg" onClick={(e) => {
                                 setBattleButtonState(e.target.name)
                             }}>{abilities[3]}</Button>{' '}
-                            {/* <Button variant="primary" size="lg" onClick={() => {}}>ATTACK</Button> */}
                         </div>
                 }
             break;
             case 'winner': 
-                //code
             break;
             case 'game over': 
-                //code
             break;
             default: 
-                //this will default to login - so put login buttons here
         }
     }
 

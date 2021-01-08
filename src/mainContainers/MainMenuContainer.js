@@ -7,22 +7,18 @@ class MainMenuContainer extends Component {
     
     team = () => {
         this.props.history.push("/chooseTeam")
-      }
-
+    }
     edit = () => {
         this.props.history.push("/editUser")
     }
-
     logout = () => {
         localStorage.clear()
         this.props.history.push("/")
     }
-
     componentDidMount(){
         this.props.setPageState('main menu')
         this.props.clearTeamState()
     }
-
     render() {
         return (
             <div className="main-menu-btns">

@@ -6,7 +6,6 @@ class GameOver extends Component {
     componentDidMount() {
         this.props.setPageState('game over')
     }
-
     main = () => {
         this.props.setPageState("main menu")
         this.props.history.push("/main")
@@ -19,8 +18,7 @@ class GameOver extends Component {
                 <h3> YOU'VE LOST. YOU'RE NOTHING. </h3>
                 <br/>
                 <br/>
-                <Button variant="warning" size="lg" onClick={() => {
-                        this.main()}}>Main Menu</Button> 
+                <Button variant="warning" size="lg" onClick={() => {this.main()}}>Main Menu</Button> 
             </div>       
         );
     }

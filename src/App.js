@@ -93,20 +93,13 @@ class App extends React.Component {
   }
 
   startBattle = () => {
-    // console.log(this.state.team)
     this.createGame(this.state.userID, this.state.team)
-    // create team pets with hp, dmg, abilities
-    // create game
-    // create boss
   }
   
   createGame = (id, team) => {
-    // console.log(id, team)
-    // debugger
     fetch(`${BASEURL}/newgame`, this.configPetObj(id, team) )
     .then(resp => resp.json())
     .then(json => {
-      // console.log(json)
       this.setState({
         currentGame: json.id
       })

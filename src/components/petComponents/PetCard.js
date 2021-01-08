@@ -1,8 +1,5 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card'
-// hover over shows description
-// state in pet card for hover? state for currently clicked? 
-// attackingPetMoves={Object.keys(this.state.attackingPetMoves).length === 0 && this.state.attackingPetMoves.constructor === Object ? this.state.attackingPetMoves : null}
 
 const PetCard = props => {
     if(props.attackingPet) {
@@ -31,7 +28,7 @@ const PetCard = props => {
                 style={{width: "100px"}} 
                 onClick={()=>props.handleClick(props.pet)} 
                 onMouseEnter={()=>props.setHoveredPet(props.pet)} 
-            >
+                >
                 <Card.Img src={props.pet.img_url} variant="top" alt="pet icon" />
                 <h6>{props.pet.name}</h6>
             </Card>

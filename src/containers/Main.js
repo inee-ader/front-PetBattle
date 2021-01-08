@@ -34,15 +34,12 @@ class Main extends Component {
     renderForm = (routerProps) => {
         if(routerProps.location.pathname === "/"){
 
-          return <LoginContainer setPageState={this.props.setPageState} handleLogin={this.handleLogin} />
+          return <LoginContainer history={this.props.history} setPageState={this.props.setPageState} handleLogin={this.handleLogin} />
         
         } else if (routerProps.location.pathname === "/signup"){
-            
-          return <SignUpContainer handleSubmit={this.handleSignup} /> 
-        //   this.props.setPageState('sign up')
+            return <SignUpContainer history={this.props.history} setPageState={this.props.setPageState} handleSubmit={this.handleSignup} /> 
         }
     }
-
     chooseTeam = (routerProps) => {
         const {pets, team, addPet, removePet, hoveredPet, setHoveredPet, setPageState, page} = this.props
 
@@ -58,7 +55,6 @@ class Main extends Component {
             />
         } 
     }
-
     main = (routerProps) => {
         if(routerProps.location.pathname === "/main"){
             return <MainMenuContainer 
@@ -66,10 +62,8 @@ class Main extends Component {
                 clearTeamState={this.props.clearTeamState}
                 history={this.props.history}
             />
-        } 
-       
+        }   
     }
-
     battle = (routerProps) => {
         const {history, currentGame, setAttackingPetMoves, setHoveredPet, battleButtonPressed,setBattleButtonState, setAppMovesState} = this.props
         if(routerProps.location.pathname === "/battle"){
@@ -86,11 +80,9 @@ class Main extends Component {
               />
         } 
     }
-
     doNothing = (thing) => {
         return null
     }
-
     editUser = (routerProps) => {
         if(routerProps.location.pathname === "/editUser"){
             return <EditUserContainer 
@@ -99,14 +91,10 @@ class Main extends Component {
                 userID={this.props.userID}
               />
         } 
-
     }
-
     handleLogin = (info) => {
         this.handleAuthFetch(info, 'http://localhost:3000/login')
-        // this.props.setPageState('login')
     }
-
     handleAuthFetch = (info, request) => {  
         fetch(request, {
             method: 'POST',
@@ -121,8 +109,6 @@ class Main extends Component {
         })
         .then(res => res.json())
         .then(data => {
-          // stores the user in state, but stores the token in localStorage     
-
             this.setState({name: data.name},() => {
                 localStorage.setItem('jwt', data.token)
                 this.props.history.push('/main')
@@ -153,15 +139,11 @@ class Main extends Component {
         })
         .then(res => res.json())
         .then(data => {
-            // console.log("inside the fetch", data)
-        //   stores the user in state, but stores the token in localStorage
           this.setState({name: data.user.name}, () => {
             localStorage.setItem('jwt', data.token)
             this.props.history.push('/main')
           })
-
         this.props.setUserIDState(data.user.id)
-        
         })
         .then(() => {
             this.props.setAPIPetsState()
