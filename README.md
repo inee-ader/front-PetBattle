@@ -46,6 +46,6 @@ For this project, we had some future stretch goals:
 - animating pet and boss icons to move and bounce with attacks
 
 ## AUTHORS
-Michael Lee - https://github.com/Michael-Lee-1994
-Kevin Grow - https://github.com/kgrowkgrow
-Inee Ader - https://github.com/inee-ader
+- Michael Lee - https://github.com/Michael-Lee-1994
+- Kevin Grow - https://github.com/kgrowkgrow
+- Inee Ader - https://github.com/inee-ader
