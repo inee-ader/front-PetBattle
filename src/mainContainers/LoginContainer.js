@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button'
 
 class LoginContainer extends Component {
     state = {
@@ -26,12 +26,13 @@ class LoginContainer extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
+                <br/> 
                 <h1>{this.props.title}</h1>
-                <label htmlFor="username">Name: </label>
-                <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
-                <label htmlFor="password">Password: </label>
-                <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
-                <input type="submit" value="Submit"/>
+                <label htmlFor="username">Name: </label>{' '}
+                <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>{' '}
+                <label htmlFor="password">Password: </label>{' '}
+                <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>{' '}
+                <Button variant="warning" size="md" onClick={this.logout} type="submit" value="Submit">Submit</Button>
             </form>
         );
     }
