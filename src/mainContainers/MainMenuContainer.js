@@ -20,6 +20,7 @@ class MainMenuContainer extends Component {
 
     componentDidMount(){
         this.props.setPageState('main menu')
+        this.props.clearTeamState()
     }
 
     render() {

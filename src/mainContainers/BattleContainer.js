@@ -26,10 +26,6 @@ class BattleContainer extends Component {
         this.setBattleState()
     }
 
-  
-
-
-
     componentDidUpdate() {
 
         if (this.props.battleButtonPressed === "0" || this.props.battleButtonPressed === "1" || this.props.battleButtonPressed === "2" || this.props.battleButtonPressed === "3") {
@@ -306,6 +302,7 @@ class BattleContainer extends Component {
     handleGameEnd = (result) => {
         
         result ? this.win() : this.lose()  
+        
 
     }
     

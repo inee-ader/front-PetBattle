@@ -63,7 +63,7 @@ body {
 
 .main-menu-btns{
   margin: 0;
-  font-family: 'IM Fell English SC', serif;
+  font-family: 'Almendra SC', regular;
   position: absolute;
   top: 30%;
   left: 50%;
@@ -83,6 +83,11 @@ header{
   font-family: 'IM Fell English SC', serif;
   border: 5px solid gold; 
   border-style: outset;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Almendra SC', regular;
+  color: white;
 }
 
 .team-box{
@@ -143,8 +148,8 @@ header{
   position: fixed;
   top: 37%;
   left: 22%;
-  width: 11%;
-  height: 26%;
+  width: 12%;
+  height: 31%;
   color: white;
 }
 
@@ -152,6 +157,7 @@ header{
   padding: 7%;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
 }
 
 #icon-card{
@@ -189,6 +195,7 @@ header{
 }
 
 .script-box{
+  font-family: 'Almendra SC', regular;
   padding: 15px;
   border: 1px solid gold;
   border-style: dotted;
@@ -197,6 +204,6 @@ header{
   top: 37%;
   left: 37%;
   width: 30%;
-  height: 26%;
+  height: 20%;
   color: white;
 }

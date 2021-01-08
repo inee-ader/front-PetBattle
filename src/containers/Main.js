@@ -63,6 +63,7 @@ class Main extends Component {
         if(routerProps.location.pathname === "/main"){
             return <MainMenuContainer 
                 setPageState={this.props.setPageState}
+                clearTeamState={this.props.clearTeamState}
                 history={this.props.history}
             />
         } 

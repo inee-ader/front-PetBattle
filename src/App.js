@@ -146,6 +146,10 @@ class App extends React.Component {
     })
   }
 
+  clearTeamState = () => {
+    this.setState({team: []})
+  }
+
   render() {
     const {pets, team, hoveredPet, footerInfo, page, userID, currentGame, battleButtonPressed} = this.state
     return (
@@ -160,6 +164,7 @@ class App extends React.Component {
           <Main addPet={this.addPet} 
               removePet={this.removePet} 
               setPageState={this.setPageState}
+              clearTeamState={this.clearTeamState}
               page={page}
               team={team} 
               pets={pets} 
