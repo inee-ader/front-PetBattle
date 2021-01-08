@@ -10,12 +10,8 @@ class EditUserContainer extends Component {
         alias: "",
         bio: "",
     }
-
     handleSubmit = (e) => {
-       
-       
         e.preventDefault()
-        // this.props.handleSubmit(this.state)
         const object =
         {
             method: 'PATCH',
@@ -34,28 +30,23 @@ class EditUserContainer extends Component {
         fetch(`${BASEURL}/users/${this.props.userID}`, object)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             this.props.history.push("/main")
         })
     }
-    
     handleChange = (e) => {
         let {name, value} = e.target
         this.setState({
           [name]: value
         })
     }
-
     delete = () => {
         fetch(`${BASEURL}/users/${this.props.userID}`, {method: "DELETE"})
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             this.props.history.push("/signup")
             localStorage.clear()
         })
     }
-    
     componentDidMount() {
         this.props.setPageState('edit user')
         fetch(`${BASEURL}/users/${this.props.userID}`)
@@ -69,28 +60,21 @@ class EditUserContainer extends Component {
             })
         })
     }
-
     render() {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <h1>{this.props.title}</h1>
                     <label htmlFor="username">Name:</label>
-                    <input type="text" name="name" defaultValue={this.state.name} onChange={this.handleChange}/>
+                    <input type="text" name="name" defaultValue={this.state.name} onChange={this.handleChange}/>{' '}
                     <label htmlFor="alias">Alias:</label>
-                    <input type="alias" name="alias" defaultValue={this.state.alias} onChange={this.handleChange}/>
+                    <input type="alias" name="alias" defaultValue={this.state.alias} onChange={this.handleChange}/>{' '}
                     <label htmlFor="bio">Bio:</label>
-                    <input type="bio" name="bio" defaultValue={this.state.bio} onChange={this.handleChange}/>
-                    {/* <label htmlFor="gif_url">gif_url:</label>
-                    <input type="gif_url" name="gif_url" defaultValue={this.state.gif_url} onChange={this.handleChange}/> */}
-                    
-                    <input type="submit" value="Submit"/>
+                    <input type="bio" name="bio" defaultValue={this.state.bio} onChange={this.handleChange}/>{' '}
+                    <Button variant="warning" size="md" onClick={this.logout} type="submit" value="Submit">Submit Edits</Button>
                 </form>
-
                 <Button variant="warning" onClick={this.delete}>Delete User</Button>
             </div>
-
-            
         );
     }
 }

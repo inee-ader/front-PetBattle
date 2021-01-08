@@ -20,51 +20,37 @@ class Footer extends Component {
         const {info, page, handleClick, setBattleButtonState} = this.props
 
         switch(page) {
-            // case 'login':
-            //     //code 
-            // break;
             case 'main menu':
-               //code // no footer
             break; 
             case 'choose team': 
-                //code
                 return <Button variant="warning" size="lg" block onClick={() => {handleClick()
                     this.battle()}}>BATTLE</Button> 
             break;
             case 'battle': 
-            //code
                 let abilities = this.convertString()
-                console.log(abilities)
                 if(abilities !== undefined) {
-                return <div>
-<<<<<<< HEAD
-                            <Button variant="warning" size="lg" onClick={() => {}}>{abilities[0]}</Button>
-                            <Button variant="warning" size="lg" onClick={() => {}}>{abilities[1]}</Button>
-                            <Button variant="warning" size="lg" onClick={() => {}}>{abilities[2]}</Button>
-                            <Button variant="warning" size="lg" onClick={() => {}}>{abilities[3]}</Button>
-=======
-                            <Button name="0" type="submit" value="0" variant="primary" size="lg" onClick={(e) => {
+
+                return <div className="battle-btns">
+                            <Button name="0" type="submit" value="0" variant="warning" size="lg" onClick={(e) => {
                                 setBattleButtonState(e.target.name)
-                            }}>{abilities[0]}</Button>
-                            <Button name="1" type="submit" value="1" variant="primary" size="lg" onClick={(e) => {
+                            }}>{abilities[0]  }</Button>{' '}
+                            <Button name="1" type="submit" value="1" variant="warning" size="lg" onClick={(e) => {
                                 setBattleButtonState(e.target.name)
-                            }}>{abilities[1]}</Button>
-                            <Button name="2" type="submit" value="2" variant="primary" size="lg" onClick={(e) => {
+                            }}>{abilities[1]}</Button>{' '}
+                            <Button name="2" type="submit" value="2" variant="warning" size="lg" onClick={(e) => {
                                 setBattleButtonState(e.target.name)
-                            }}>{abilities[2]}</Button>
-                            <Button name="3" type="submit" value="3" variant="primary" size="lg" onClick={(e) => {
+                            }}>{abilities[2]}</Button>{' '}
+                            <Button name="3" type="submit" value="3" variant="warning" size="lg" onClick={(e) => {
                                 setBattleButtonState(e.target.name)
-                            }}>{abilities[3]}</Button>
->>>>>>> c5d30201bb35e148d889ff01602f4d5455f06c2a
-                            {/* <Button variant="primary" size="lg" onClick={() => {}}>ATTACK</Button> */}
+                            }}>{abilities[3]}</Button>{' '}
                         </div>
                 }
             break;
-            case 'battle end': 
-                //code
+            case 'winner': 
+            break;
+            case 'game over': 
             break;
             default: 
-                //this will default to login - so put login buttons here
         }
     }
 

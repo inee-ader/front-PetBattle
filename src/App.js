@@ -41,7 +41,7 @@ class App extends React.Component {
     //   })
     //   .then(resp => resp.json())
     //   .then(data => {
-    //     console.log(data)
+    //     (data)
     //     // this.setState({currentUser: data.user})
     //   })
     // }
@@ -50,6 +50,7 @@ class App extends React.Component {
     // .then() // this fetches from our api
 
   }
+  
  
   setAttackingPetMoves = (attackingPetMoves) => {
     this.setState({
@@ -92,20 +93,13 @@ class App extends React.Component {
   }
 
   startBattle = () => {
-    // console.log(this.state.team)
     this.createGame(this.state.userID, this.state.team)
-    // create team pets with hp, dmg, abilities
-    // create game
-    // create boss
   }
   
   createGame = (id, team) => {
-    // console.log(id, team)
-    // debugger
     fetch(`${BASEURL}/newgame`, this.configPetObj(id, team) )
     .then(resp => resp.json())
     .then(json => {
-      // console.log(json)
       this.setState({
         currentGame: json.id
       })
@@ -139,6 +133,16 @@ class App extends React.Component {
     })
   }
 
+  setAppMovesState = (pet) => {
+    this.setState({
+      attackingPetMoves: pet
+    })
+  }
+
+  clearTeamState = () => {
+    this.setState({team: []})
+  }
+
   render() {
     const {pets, team, hoveredPet, footerInfo, page, userID, currentGame, battleButtonPressed} = this.state
     return (
@@ -153,6 +157,7 @@ class App extends React.Component {
           <Main addPet={this.addPet} 
               removePet={this.removePet} 
               setPageState={this.setPageState}
+              clearTeamState={this.clearTeamState}
               page={page}
               team={team} 
               pets={pets} 
@@ -164,6 +169,8 @@ class App extends React.Component {
               currentGame={currentGame}
               setAttackingPetMoves={this.setAttackingPetMoves}
               battleButtonPressed={battleButtonPressed}
+              setBattleButtonState={this.setBattleButtonState}
+              setAppMovesState={this.setAppMovesState}
               />
         </div>
          {/* Object.keys(obj).length === 0 && obj.constructor === Object */}

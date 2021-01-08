@@ -63,7 +63,7 @@ body {
 
 .main-menu-btns{
   margin: 0;
-  font-family: 'IM Fell English SC', serif;
+  font-family: 'Almendra SC', regular;
   position: absolute;
   top: 30%;
   left: 50%;
@@ -73,7 +73,7 @@ body {
 
 footer{
   top: 90%;
-  left: 50%;
+  left: 36%;
   position: absolute;
   font-family: 'IM Fell English SC', serif;
 }
@@ -83,6 +83,11 @@ header{
   font-family: 'IM Fell English SC', serif;
   border: 5px solid gold; 
   border-style: outset;
+}
+
+h1, h2, h3, h4, h5, h6, label{
+  font-family: 'Almendra SC', regular;
+  color: white;
 }
 
 .team-box{
@@ -96,6 +101,19 @@ header{
   left: 5%;
   height: 70%;
   width: 13%;
+}
+
+.battle-team{
+  padding: 30px;
+  padding-top: 5%;
+  border: 5px solid gold; 
+  border-radius: 5px;
+  border-style: outset;
+  position: fixed;
+  top: 15%; 
+  left: 5%;
+  height: 650px;
+  width: 170px;
 }
 
 .select-box{
@@ -123,6 +141,26 @@ header{
   height: 70%;
 }
 
+.active-pet{
+  padding: 15px;
+  border: 5px solid gold;
+  border-style: outset;
+  border-radius: 5px;
+  position: fixed;
+  top: 34%;
+  left: 19%;
+  width: 16%;
+  height: 36%;
+  color: white;
+}
+
+.active-pet img{
+  padding: 7%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
 #icon-card{
   height: 380px;
   padding: 10px;
@@ -138,4 +176,37 @@ header{
 #pet-card{
   margin-bottom: 20px;
   margin-top: 10px;
+}
+
+
+.boss{
+  padding: 15px;
+  border: 5px solid gold;
+  border-style: outset;
+  border-radius: 5px;
+  position: fixed;
+  top: 29%;
+  left: 70%;
+  width: 27%;
+  height: 42%;
+}
+#boss-card{
+  margin-left: auto;
+  margin-right: auto;
+  height: 90%;
+  top: 5%;
+}
+
+.script-box{
+  font-family: 'Almendra Display', cursive;
+  padding: 15px;
+  border: 1px solid gold;
+  border-style: dotted;
+  border-radius: 5px;
+  position: fixed;
+  top: 37%;
+  left: 37%;
+  width: 30%;
+  height: 20%;
+  color: white;
 }

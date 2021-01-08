@@ -12,22 +12,19 @@ class SelectPetsContainer extends Component {
 
     render() {
         const {pets, handleClick, setHoveredPet} = this.props
-
         return (
-          
-                <Container className="">
-                    <div className="container">
-                        {pets.map(pet => {
-                            return <PetCard
-                                key={pet.id}
-                                pet={pet}
-                                handleClick={handleClick}
-                                setHoveredPet={setHoveredPet} 
+            <Container className="">
+                <div className="container">
+                    {pets.map(pet => {
+                        return <PetCard
+                            key={pet.id}
+                            pet={pet}
+                            handleClick={handleClick}
+                            setHoveredPet={setHoveredPet} 
                             />
-                        })}
-                    </div>
-                </Container>
-           
+                    })}
+                </div>
+            </Container>
         );
     }
 }

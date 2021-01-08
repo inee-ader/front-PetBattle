@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Script = () => {
+const Script = (props) => {
     return (
         <div>
-            <h1>battle script</h1>
+            <h3>....</h3>
+            <h5>{props.script}</h5>
+            <h3>....</h3>
         </div>
     );
 }

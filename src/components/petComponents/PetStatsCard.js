@@ -2,12 +2,8 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 const PetStatsCard = props => {
-
-    // after refresh, it cannot access type. is able to find type upon save and NOT refresh. 
     if(props.hoveredPet){
-        // debugger
-    return (
-            
+    return (    
             <Card id="stats-card" className="bg-dark text-white border-warning variant-top" style={{width: "200px"}}>
                 <strong>Name: </strong> {props.hoveredPet.name}
                 <br/>
