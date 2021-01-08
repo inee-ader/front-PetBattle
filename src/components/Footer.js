@@ -39,7 +39,7 @@ class Footer extends Component {
                 return <div className="battle-btns">
                             <Button name="0" type="submit" value="0" variant="warning" size="lg" onClick={(e) => {
                                 setBattleButtonState(e.target.name)
-                            }}>{abilities[0]}</Button>{' '}
+                            }}>{abilities[0]  }</Button>{' '}
                             <Button name="1" type="submit" value="1" variant="warning" size="lg" onClick={(e) => {
                                 setBattleButtonState(e.target.name)
                             }}>{abilities[1]}</Button>{' '}
