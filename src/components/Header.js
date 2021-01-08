@@ -23,8 +23,11 @@ class Header extends Component {
             case 'battle': 
                 return <h1>BATTLE</h1>
             break;
-            case 'battle end': 
-                return <h1>BATTLE SUMMARY</h1>
+            case 'winner': 
+            return <h1>WINNER WINNER</h1>
+            break;
+            case 'gameover': 
+            return <h1>GAME OVER LOSER</h1>
             break;
             default: 
                 return <h1>LOGIN</h1>

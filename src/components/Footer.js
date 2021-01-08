@@ -53,7 +53,10 @@ class Footer extends Component {
                         </div>
                 }
             break;
-            case 'battle end': 
+            case 'winner': 
+                //code
+            break;
+            case 'game over': 
                 //code
             break;
             default: 

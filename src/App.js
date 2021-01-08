@@ -50,6 +50,7 @@ class App extends React.Component {
     // .then() // this fetches from our api
 
   }
+  
  
   setAttackingPetMoves = (attackingPetMoves) => {
     this.setState({
@@ -139,6 +140,12 @@ class App extends React.Component {
     })
   }
 
+  setAppMovesState = (pet) => {
+    this.setState({
+      attackingPetMoves: pet
+    })
+  }
+
   render() {
     const {pets, team, hoveredPet, footerInfo, page, userID, currentGame, battleButtonPressed} = this.state
     return (
@@ -165,6 +172,7 @@ class App extends React.Component {
               setAttackingPetMoves={this.setAttackingPetMoves}
               battleButtonPressed={battleButtonPressed}
               setBattleButtonState={this.setBattleButtonState}
+              setAppMovesState={this.setAppMovesState}
               />
         </div>
          {/* Object.keys(obj).length === 0 && obj.constructor === Object */}

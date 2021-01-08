@@ -17,7 +17,8 @@ const PetCard = props => {
                     onMouseEnter={()=>props.setHoveredPet(props.attackingPet)} 
                 >
                     <Card.Img src={props.attackingPet.img_url} variant="top" alt="pet icon" />
-                    <h6>{props.attackingPet.name}</h6>
+                    <h4>{props.attackingPet.name}</h4>
+                    <h6>HP: {props.hp <= 0 ? 0 : props.hp}</h6>
                 </Card>
             </div>
         );

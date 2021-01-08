@@ -15,13 +15,19 @@ class Main extends Component {
 
     winner = (routerProps) => {
         if(routerProps.location.pathname === "/winner"){
-            return <Winner /> 
+            return <Winner 
+            setPageState={this.props.setPageState}
+            history={this.props.history}
+            /> 
         }
     }
 
     gameOver = (routerProps) => {
-        if(routerProps.location.pathname === "gameover"){
-            return <GameOver />
+        if(routerProps.location.pathname === "/gameover"){
+            return <GameOver 
+            setPageState={this.props.setPageState}
+            history={this.props.history}
+            />
         }
     }
 
@@ -64,7 +70,7 @@ class Main extends Component {
     }
 
     battle = (routerProps) => {
-        const {history, currentGame, setAttackingPetMoves, setHoveredPet, battleButtonPressed,setBattleButtonState} = this.props
+        const {history, currentGame, setAttackingPetMoves, setHoveredPet, battleButtonPressed,setBattleButtonState, setAppMovesState} = this.props
         if(routerProps.location.pathname === "/battle"){
             return <BattleContainer 
                 setPageState={this.props.setPageState}
@@ -75,6 +81,7 @@ class Main extends Component {
                 battleButtonPressed={battleButtonPressed}
                 doNothing={this.doNothing}
                 setBattleButtonState={setBattleButtonState}
+                setAppMovesState={setAppMovesState}
               />
         } 
     }
