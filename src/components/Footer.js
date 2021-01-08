@@ -35,10 +35,10 @@ class Footer extends Component {
                 console.log(abilities)
                 if(abilities !== undefined) {
                 return <div>
-                            <Button variant="primary" size="lg" onClick={() => {}}>{abilities[0]}</Button>
-                            <Button variant="primary" size="lg" onClick={() => {}}>{abilities[1]}</Button>
-                            <Button variant="primary" size="lg" onClick={() => {}}>{abilities[2]}</Button>
-                            <Button variant="primary" size="lg" onClick={() => {}}>{abilities[3]}</Button>
+                            <Button variant="warning" size="lg" onClick={() => {}}>{abilities[0]}</Button>
+                            <Button variant="warning" size="lg" onClick={() => {}}>{abilities[1]}</Button>
+                            <Button variant="warning" size="lg" onClick={() => {}}>{abilities[2]}</Button>
+                            <Button variant="warning" size="lg" onClick={() => {}}>{abilities[3]}</Button>
                             {/* <Button variant="primary" size="lg" onClick={() => {}}>ATTACK</Button> */}
                         </div>
                 }

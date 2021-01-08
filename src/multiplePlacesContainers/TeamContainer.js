@@ -22,7 +22,7 @@ class TeamContainer extends Component {
            
             <div>
                 {/* <h3>Team Container</h3> */}
-                <div className="">
+                <div className="team-box">
                     {this.makeTeam()}
                 </div>
             </div>
