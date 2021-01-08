@@ -95,7 +95,7 @@ class BattleContainer extends Component {
             })
         }
         this.props.setAttackingPetMoves(this.state.attackingPet)
-        console.log("turn order", turnOrder)
+        // console.log("turn order", turnOrder)
     }
     
     battleSequence = () => {
@@ -123,11 +123,11 @@ class BattleContainer extends Component {
             <div>
                 <h3>Battle</h3>
                 <div className="">
-                    <TeamContainer team={this.state.team} setHoveredPet={this.props.setHoveredPet}/>
+                    <TeamContainer team={this.state.team} setHoveredPet={this.props.setHoveredPet} handleClick={this.props.doNothing}/>
                 </div>
 
                 <div className="">
-                    <PetCard attackingPet={this.state.attackingPet}/>
+                    <PetCard attackingPet={this.state.attackingPet} setHoveredPet={this.props.setHoveredPet} handleClick={this.props.doNothing}/>
                 </div>
 
                 <div className="">

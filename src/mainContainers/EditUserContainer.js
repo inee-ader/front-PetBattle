@@ -34,7 +34,7 @@ class EditUserContainer extends Component {
         fetch(`${BASEURL}/users/${this.props.userID}`, object)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             this.props.history.push("/main")
         })
     }
@@ -50,7 +50,7 @@ class EditUserContainer extends Component {
         fetch(`${BASEURL}/users/${this.props.userID}`, {method: "DELETE"})
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             this.props.history.push("/signup")
             localStorage.clear()
         })

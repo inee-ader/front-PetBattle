@@ -41,7 +41,7 @@ class App extends React.Component {
     //   })
     //   .then(resp => resp.json())
     //   .then(data => {
-    //     console.log(data)
+    //     (data)
     //     // this.setState({currentUser: data.user})
     //   })
     // }

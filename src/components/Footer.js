@@ -34,7 +34,7 @@ class Footer extends Component {
             case 'battle': 
             //code
                 let abilities = this.convertString()
-                console.log(abilities)
+                // console.log(abilities)
                 if(abilities !== undefined) {
                 return <div>
                             <Button name="0" type="submit" value="0" variant="primary" size="lg" onClick={(e) => {
