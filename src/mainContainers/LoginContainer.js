@@ -36,6 +36,7 @@ class LoginContainer extends Component {
               </form>
               <br/>
               <br/>
+              <h4 className="login-box" >Be the conquerer of rude monsters in this Blizzard-themed pet battle game! Choose 3 pets to battle and test your grit against the boss. Will you be victorious?! </h4>
               <h3>Don't have an account? </h3>
               <Button variant="warning" size="md" onClick={this.signUp}>Sign Up</Button>
             </div>

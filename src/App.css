@@ -199,6 +199,7 @@ h1, h2, h3, h4, h5, h6, label{
 
 .script-box{
   font-family: 'Almendra Display', cursive;
+  font-weight: bold; 
   padding: 15px;
   border: 1px solid gold;
   border-style: dotted;
@@ -207,6 +208,21 @@ h1, h2, h3, h4, h5, h6, label{
   top: 37%;
   left: 37%;
   width: 30%;
+  height: 20%;
+  color: white;
+}
+
+.login-box{
+  font-family: 'Almendra Display', cursive;
+  font-weight: bold;
+  padding: 15px;
+  border: 1px solid gold;
+  border-style: dotted;
+  border-radius: 5px;
+  position: fixed;
+  top: 38%;
+  left: 29%;
+  width: 41%;
   height: 20%;
   color: white;
 }

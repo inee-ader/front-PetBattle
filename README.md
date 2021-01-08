@@ -82,7 +82,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 // embed YouTube demo video
 // user stories: user CRUD, logout, choose team and battle
 
-// stretch: rewarded gold after winning, buy pets, unlock new pets, pets gain xp, pets level, game modes, pet type influences attack/crit, more bosses created/boss type?, hp bars for battle. 
+// stretch: rewarded gold after winning, buy pets, unlock new pets, pets gain xp, pets level, game modes, pet type influences attack/crit, more bosses created/boss type?, hp bars for battle, dead pets are grayed out?, animations for battle of icons moving.
 
 // contributing: 
 
