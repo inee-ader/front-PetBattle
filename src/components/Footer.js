@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import ButtonGroup from 'react-bootstrap/esm/ButtonGroup';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 
 class Footer extends Component {
@@ -15,7 +17,7 @@ class Footer extends Component {
     }
 
     renderSwitch = () => {
-        const {info, page, handleClick, attackingPetMoves} = this.props
+        const {info, page, handleClick, setBattleButtonState} = this.props
 
         switch(page) {
             // case 'login':
@@ -35,10 +37,25 @@ class Footer extends Component {
                 console.log(abilities)
                 if(abilities !== undefined) {
                 return <div>
+<<<<<<< HEAD
                             <Button variant="warning" size="lg" onClick={() => {}}>{abilities[0]}</Button>
                             <Button variant="warning" size="lg" onClick={() => {}}>{abilities[1]}</Button>
                             <Button variant="warning" size="lg" onClick={() => {}}>{abilities[2]}</Button>
                             <Button variant="warning" size="lg" onClick={() => {}}>{abilities[3]}</Button>
+=======
+                            <Button name="0" type="submit" value="0" variant="primary" size="lg" onClick={(e) => {
+                                setBattleButtonState(e.target.name)
+                            }}>{abilities[0]}</Button>
+                            <Button name="1" type="submit" value="1" variant="primary" size="lg" onClick={(e) => {
+                                setBattleButtonState(e.target.name)
+                            }}>{abilities[1]}</Button>
+                            <Button name="2" type="submit" value="2" variant="primary" size="lg" onClick={(e) => {
+                                setBattleButtonState(e.target.name)
+                            }}>{abilities[2]}</Button>
+                            <Button name="3" type="submit" value="3" variant="primary" size="lg" onClick={(e) => {
+                                setBattleButtonState(e.target.name)
+                            }}>{abilities[3]}</Button>
+>>>>>>> c5d30201bb35e148d889ff01602f4d5455f06c2a
                             {/* <Button variant="primary" size="lg" onClick={() => {}}>ATTACK</Button> */}
                         </div>
                 }

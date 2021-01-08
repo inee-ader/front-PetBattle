@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch, withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 // import {BrowserRouter} from 'react-router-dom'
 import './App.css';
 import Header from './components/Header';
@@ -17,7 +17,8 @@ class App extends React.Component {
     team: [], 
     hoveredPet: {},
     currentGame: "",
-    attackingPetMoves: {}
+    attackingPetMoves: {},
+    battleButtonPressed: ""
   }
 
   componentDidMount() {
@@ -132,8 +133,14 @@ class App extends React.Component {
     })
   }
 
+  setBattleButtonState = (buttonName) => {
+    this.setState({
+      battleButtonPressed:buttonName
+    })
+  }
+
   render() {
-    const {pets, team, hoveredPet, footerInfo, page, userID, currentGame} = this.state
+    const {pets, team, hoveredPet, footerInfo, page, userID, currentGame, battleButtonPressed} = this.state
     return (
       <div className="App">
         
@@ -142,7 +149,7 @@ class App extends React.Component {
           <Header page={page} />
         </header>
   
-        <body className="">
+        <div className="">
           <Main addPet={this.addPet} 
               removePet={this.removePet} 
               setPageState={this.setPageState}
@@ -156,12 +163,14 @@ class App extends React.Component {
               userID={userID}
               currentGame={currentGame}
               setAttackingPetMoves={this.setAttackingPetMoves}
+              battleButtonPressed={battleButtonPressed}
               />
-        </body>
+        </div>
          {/* Object.keys(obj).length === 0 && obj.constructor === Object */}
         
         <footer className="">
           <Footer info={footerInfo} page={page} handleClick={this.startBattle} history={this.props.history} setPageState={this.setPageState} attackingPetMoves={this.state.attackingPetMoves}
+          setBattleButtonState={this.setBattleButtonState}
           />
         </footer>
         

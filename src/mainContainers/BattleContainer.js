@@ -23,6 +23,21 @@ class BattleContainer extends Component {
         this.props.setPageState('battle')
     }
 
+    // componentDidUpdate() {
+    //     we have a button for abilities in 
+    //     switch(this.props.battleButtonPressed) {
+    //         case '1': 
+    //         break;
+    //         case '2':
+    //         break;
+    //         case '3':
+    //         break;
+
+    //         default: 
+    //         break
+    //     }
+
+    // }
     setBattleState = () => {
         fetch(`${BASEURL}/games/${this.props.currentGame}`)
         .then(res => res.json())
@@ -111,9 +126,9 @@ class BattleContainer extends Component {
                     <TeamContainer team={this.state.team} setHoveredPet={this.props.setHoveredPet}/>
                 </div>
 
-                {/* <div className="">
+                <div className="">
                     <PetCard attackingPet={this.state.attackingPet}/>
-                </div> */}
+                </div>
 
                 <div className="">
                     <Boss/>
