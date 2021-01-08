@@ -18,7 +18,7 @@ class Main extends Component {
         
         } else if (routerProps.location.pathname === "/signup"){
             
-          return <SignUpContainer handleSubmit={this.handleSignup} /> 
+          return <SignUpContainer handleSubmit={this.handleSignup} setPageState={this.props.setPageState}/> 
         //   this.props.setPageState('sign up')
         }
     }

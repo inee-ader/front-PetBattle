@@ -20,6 +20,10 @@ class SignUpContainer extends Component {
         })
       }
 
+      componentDidMount(){
+        this.props.setPageState('sign up')
+      }
+
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
