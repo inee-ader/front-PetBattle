@@ -20,37 +20,6 @@ class App extends React.Component {
     attackingPetMoves: {},
     battleButtonPressed: ""
   }
-
-  componentDidMount() {
-    
-    // for(let i of array) {
-    //   fetch(`https://us.api.blizzard.com/data/wow/pet/${i}?namespace=static-us&locale=en_US&access_token=${accessToken}`)
-    //   .then(res => res.json())
-    //   .then(data => {this.setState({
-    //     apiPets: [...this.state.apiPets, data]
-    //   })})
-    // }
-
-    // if (localStorage.getItem("jwt")) {
-    //   fetch("http://localhost:3000/getUser", {
-    //     method: "GET",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "Authorization": `Bearer ${localStorage.getItem("jwt")}`
-    //     }
-    //   })
-    //   .then(resp => resp.json())
-    //   .then(data => {
-    //     (data)
-    //     // this.setState({currentUser: data.user})
-    //   })
-    // }
-
-    // fetch(`${BASEURL}/users/${this.state.userID}`)
-    // .then() // this fetches from our api
-
-  }
-  
  
   setAttackingPetMoves = (attackingPetMoves) => {
     this.setState({
