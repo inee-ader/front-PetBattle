@@ -98,6 +98,19 @@ header{
   width: 170px;
 }
 
+.battle-team{
+  padding: 30px;
+  padding-top: 5%;
+  border: 5px solid gold; 
+  border-radius: 5px;
+  border-style: outset;
+  position: fixed;
+  top: 15%; 
+  left: 5%;
+  height: 650px;
+  width: 170px;
+}
+
 .select-box{
   padding: 30px;
   border: 5px solid gold; 
@@ -122,6 +135,27 @@ header{
   height: 650px;
 }
 
+.active-pet{
+  padding: 15px;
+  border: 5px solid gold;
+  border-style: outset;
+  border-radius: 5px;
+  position: fixed;
+  top: 34%;
+  left: 21%;
+  width: 16%;
+  height: 32%;
+}
+.active-pet img{
+  padding: 7%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.battle-btns{
+  
+}
+
 #icon-card{
   height: 360px;
   padding: 10px;
@@ -137,4 +171,20 @@ header{
 #pet-card{
   margin-bottom: 20px;
   margin-top: 10px;
+}
+
+.boss{
+  padding: 15px;
+  border: 5px solid gold;
+  border-style: outset;
+  border-radius: 5px;
+  position: fixed;
+  top: 29%;
+  left: 60%;
+  width: 27%;
+  height: 42%;
+}
+#boss-icon{
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -18,9 +18,11 @@ class BattleContainer extends Component {
         script:""
     }
 
-    componentDidMount() {    
+    componentDidMount() {   
+         
         this.setBattleState()
         this.props.setPageState('battle')
+        
     }
 
     // componentDidUpdate() {
@@ -96,6 +98,7 @@ class BattleContainer extends Component {
         }
         this.props.setAttackingPetMoves(this.state.attackingPet)
         // console.log("turn order", turnOrder)
+        debugger
     }
     
     battleSequence = () => {
@@ -122,19 +125,19 @@ class BattleContainer extends Component {
         return (
             <div>
                 <h3>Battle</h3>
-                <div className="">
+                <div className="battle-team">
                     <TeamContainer team={this.state.team} setHoveredPet={this.props.setHoveredPet} handleClick={this.props.doNothing}/>
                 </div>
 
-                <div className="">
+                <div className="active-pet">
                     <PetCard attackingPet={this.state.attackingPet} setHoveredPet={this.props.setHoveredPet} handleClick={this.props.doNothing}/>
                 </div>
 
-                <div className="">
-                    <Boss/>
+                <div className="boss">
+                    <Boss name={this.state.boss.name} img={props.boss.img_url}/>
                 </div>
 
-                <div className="">
+                <div className="script-box">
                     <Script script={this.state.script}/>
                 </div>
 

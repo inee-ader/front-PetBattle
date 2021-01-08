@@ -36,19 +36,19 @@ class Footer extends Component {
                 let abilities = this.convertString()
                 // console.log(abilities)
                 if(abilities !== undefined) {
-                return <div>
-                            <Button name="0" type="submit" value="0" variant="primary" size="lg" onClick={(e) => {
+                return <div className="battle-btns">
+                            <Button name="0" type="submit" value="0" variant="warning" size="lg" onClick={(e) => {
                                 setBattleButtonState(e.target.name)
-                            }}>{abilities[0]}</Button>
-                            <Button name="1" type="submit" value="1" variant="primary" size="lg" onClick={(e) => {
+                            }}>{abilities[0]}</Button>{' '}
+                            <Button name="1" type="submit" value="1" variant="warning" size="lg" onClick={(e) => {
                                 setBattleButtonState(e.target.name)
-                            }}>{abilities[1]}</Button>
-                            <Button name="2" type="submit" value="2" variant="primary" size="lg" onClick={(e) => {
+                            }}>{abilities[1]}</Button>{' '}
+                            <Button name="2" type="submit" value="2" variant="warning" size="lg" onClick={(e) => {
                                 setBattleButtonState(e.target.name)
-                            }}>{abilities[2]}</Button>
-                            <Button name="3" type="submit" value="3" variant="primary" size="lg" onClick={(e) => {
+                            }}>{abilities[2]}</Button>{' '}
+                            <Button name="3" type="submit" value="3" variant="warning" size="lg" onClick={(e) => {
                                 setBattleButtonState(e.target.name)
-                            }}>{abilities[3]}</Button>
+                            }}>{abilities[3]}</Button>{' '}
                             {/* <Button variant="primary" size="lg" onClick={() => {}}>ATTACK</Button> */}
                         </div>
                 }
