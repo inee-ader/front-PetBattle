@@ -196,20 +196,24 @@ class BattleContainer extends Component {
 
     handlePetDeath = () => {
 
-        
-
         this.setScript(`Oh no! ${this.state.attackingPet[0].name} has fallen!`)
 
         if (this.state.deadPets.length === 0 ) {
             // this.setState({attackingPet: })
-            this.setState({
-                deadPets: this.state.attackingPet[0],
-                attackingPet: [this.state.team[this.state.turnOrder[1]], ...this.state.attackingPet]
+            this.setState(prevState => {
+                return {
+                    deadPets: prevState.attackingPet[0],
+                    attackingPet: [prevState.team[prevState.turnOrder[1]], ...prevState.attackingPet]
+                }
             })
+            console.log("inside ded", this.state.attackingPet)
+
         } else if (this.state.deadPets.length === 1) {
-            this.setState({
-                deadPets: this.state.attackingPet[0],
-                attackingPet: [this.state.team[this.state.turnOrder[2]], ...this.state.attackingPet]
+            this.setState(prevState => {
+                return{
+                    deadPets: prevState.attackingPet[0],
+                    attackingPet: [ prevState.team[prevState.turnOrder[2]], ...prevState.attackingPet]
+                }
             })
         } else if (this.state.deadPets.length === 2) {
             this.setState({win: false})
@@ -231,8 +235,10 @@ class BattleContainer extends Component {
         } else {
             if (this.state.attackingPetHP > 0) {
                 let damage = this.bossDamageCalculator(ability)
-                this.setState({
-                    attackingPetHP: this.state.attackingPet[0].hp - damage
+                this.setState(prevState => {
+                    return {
+                        attackingPetHP: prevState.attackingPetHP - damage
+                    }
                 })   
                 let abilities = this.convertString(this.state.boss.abilities)
                 
@@ -249,18 +255,17 @@ class BattleContainer extends Component {
         }
     }
 
-
     bossDamageCalculator = (ability) => {
         
         let damage
 
         switch(ability) {
             case "0":
-                    damage = Math.floor(Math.random() * Math.floor(20) + 4) 
+                    damage = Math.floor(Math.random() * Math.floor(20-3) + 4) 
                 return damage
             break;
             case "1":
-                    damage = Math.floor(Math.random() * Math.floor(30) + 10) 
+                    damage = Math.floor(Math.random() * Math.floor(30-9) + 10) 
 
                 if (damage % 2 === 0) {
                     damage = damage * 2
@@ -268,12 +273,12 @@ class BattleContainer extends Component {
                 return damage
             break;
             case "2":
-                    damage = Math.floor(Math.random() * Math.floor(40) + 2) 
+                    damage = Math.floor(Math.random() * Math.floor(40-1) + 2) 
 
                 return damage
             break;
             default:
-                    damage = Math.floor(Math.random() * Math.floor(20) + 10) 
+                    damage = Math.floor(Math.random() * Math.floor(20-9) + 10) 
 
                 return damage
         }
@@ -286,7 +291,6 @@ class BattleContainer extends Component {
             return {
                script: [...prevState.script, text]
             }
-            // script: [...prevState.script, text]
         })
     }
 
