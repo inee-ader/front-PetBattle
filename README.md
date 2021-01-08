@@ -1,90 +1,51 @@
-# Getting Started with Create React App
+# PET BATTLER
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## README
 
-## Available Scripts
+THIS IS THE FRONT-END PROGRAM; here is a link to the back-end: https://github.com/inee-ader/back-PetBattle
 
-In the project directory, you can run:
+## DESCRIPTION 
+YOUTUBE
 
-### `yarn start`
+This was a group project for Phase 4 of Flatiron School Software Engineering program; cohort start date October 5th, 2020. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Built in one week with Ruby on Rails, JavaScript and React frameworks. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+In this web app, the user chooses from a variety of fantasy-battle pets (from Blizzard's Pet API) to go up against a powerful Manticore boss! With a team of 3 pets, the user takes turns against the boss until one emerges victorious! One pet attacks at a time until it gets knocked out. 
 
-### `yarn test`
+User Stories: 
+- User is able to create, read(login), update, and delete account (full CRUD)
+- User has access to main menu buttons (choose team, edit user, logout)
+- User is able to choose 3 pets for their team
+- User enters battle and a game is created with a boss character
+- User commands pet abilities to take down the boss HP
+- User completes the game by winning or losing and cycled back to main menu
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## INSTRUCTIONS
 
-### `yarn build`
+After downloading the front and back end, you can put these files in a main directory on your local computer. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Start in back-end: 
+Navigate to back-end and in the terminal, run `bundle install` to make sure all the gems are installed and up to date. 
+Next, run a `rails db:migrate` to get your database created. 
+Then, start a rails server with `rails s` which should open a `localhost:3000` page in the browser. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In the front-end: 
+Navigate to the front-end directory and in the terminal, run `npm install` or `yarn` to make sure all packages are present and updated. 
+Next, run `npm start` or `yarn start` to open a `localhost:3001` page in your browser. Since your rails server is running, it'll ask you if you want to open it up in another port, which is why this is localhost:3001. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## CONTRIBUTING
 
-### `yarn eject`
+For this project, we had some future stretch goals: 
+- after battle, gold and experience is rewarded
+- gold is used to buy new pets, which can be unlocked with more battles
+- experience goes to the pets who can gain levels and increase their damage 
+- different game modes may be set to battle a string of bosses, 3 v 1: all pets attack at once. 
+- animating HP bars to display damage to pets and boss
+- once pets are knocked out, they appear disabled in the team box
+- animating pet and boss icons to move and bounce with attacks
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-**Front End Setup Branch added**
-
-// link to Michael, Kevin, Inee github 
-// link to front and back end
-
-// back-end bundle install, rails db:migrate, rails s
-// front-end npm install/yarn, npm start/ yarn start
-
-// intro: game purpose, user chooses 3 pets to battle a boss. 
-// embed YouTube demo video
-// user stories: user CRUD, logout, choose team and battle
-
-// stretch: rewarded gold after winning, buy pets, unlock new pets, pets gain xp, pets level, game modes, pet type influences attack/crit, more bosses created/boss type?, hp bars for battle, dead pets are grayed out?, animations for battle of icons moving.
-
-// contributing: 
-
-// tools: Ruby on Rails, JS, React, Blizzard API
-
+## AUTHORS
+Michael Lee - https://github.com/Michael-Lee-1994
+Kevin Grow - https://github.com/kgrowkgrow
+Inee Ader - https://github.com/inee-ader

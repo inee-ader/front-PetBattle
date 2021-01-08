@@ -8,6 +8,7 @@ const BASEURL = 'http://localhost:3000'
 class BattleContainer extends Component {
     state = {
         boss:[],
+        bossHP: 0,
         teamID: "",
         team:[],
         win: null,
@@ -17,7 +18,6 @@ class BattleContainer extends Component {
         attackingPet: [],
         attackingPetHP: 0,
         script: [],
-        bossHP: 0,
         deadPets: []
     }
     componentDidMount() {   

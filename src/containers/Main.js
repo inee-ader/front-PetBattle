@@ -33,9 +33,7 @@ class Main extends Component {
 
     renderForm = (routerProps) => {
         if(routerProps.location.pathname === "/"){
-
           return <LoginContainer history={this.props.history} setPageState={this.props.setPageState} handleLogin={this.handleLogin} />
-        
         } else if (routerProps.location.pathname === "/signup"){
             return <SignUpContainer history={this.props.history} setPageState={this.props.setPageState} handleSubmit={this.handleSignup} /> 
         }

@@ -15,7 +15,7 @@ const PetCard = props => {
                 >
                     <Card.Img src={props.attackingPet.img_url} variant="top" alt="pet icon" />
                     <h4>{props.attackingPet.name}</h4>
-                    <h6>HP: {props.hp <= 0 ? 0 : props.hp}</h6>
+                    <h4>HP: {props.hp <= 0 ? 0 : props.hp}</h4>
                 </Card>
             </div>
         );
