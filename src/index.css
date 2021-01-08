@@ -15,7 +15,14 @@ code {
 
   @font-face {
     font-family: "AlmendraSC";
-    src: local("AssistantRegular"),
+    src: local("AlmendraSC-Regular"),
       url("./fonts/AlmendraSC-Regular.ttf") format("truetype");
     font-weight: normal;
   }
+  @font-face {
+    font-family: "AlmendraDisplay-Regular";
+    src: local("AlmendraDisplay-Regular"),
+      url("./fonts/AlmendraDisplay-Regular.ttf") format("truetype");
+    font-weight: normal;
+  }
+

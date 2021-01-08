@@ -222,8 +222,7 @@ class BattleContainer extends Component {
 
         let ability = Math.floor(Math.random() * Math.floor(4)).toString()
 
-        if (this.state.boss.hp <= 0) {
-
+        if (this.state.bossHP <= 0) {
             this.setState({win: true})
             
             this.handleGameEnd(this.state.win)
@@ -302,7 +301,7 @@ class BattleContainer extends Component {
     handleGameEnd = (result) => {
         
         result ? this.win() : this.lose()  
-        
+
 
     }
     
@@ -324,7 +323,7 @@ class BattleContainer extends Component {
  // repeat
 
     renderPetCard = () => {
-        return <PetCard hp={this.state.attackingPetHP} attackingPet={this.state.attackingPet[0]} setHoveredPet={this.props.setHoveredPet} handleClick={this.props.doNothing}/>
+        return <PetCard hp={this.state.attackingPetHP} attackingPet={this.state.attackingPet[0]} setHoveredPet={this.props.setHoveredPet} handleClick={this.props.doNothing} />
     }
 
     render() {

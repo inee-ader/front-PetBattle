@@ -16,7 +16,7 @@ class GameOver extends Component {
             <div>
                 <br/>
                 <br/>
-                <h3> YOU'VE LOST EXP... GOLD... FAME... YOUR PETS DED YOU PLEB</h3>
+                <h3> YOU'VE LOST. YOU'RE NOTHING. </h3>
                 <br/>
                 <br/>
                 <Button variant="warning" size="lg" onClick={() => {

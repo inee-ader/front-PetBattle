@@ -146,10 +146,10 @@ h1, h2, h3, h4, h5, h6{
   border-style: outset;
   border-radius: 5px;
   position: fixed;
-  top: 37%;
-  left: 22%;
-  width: 12%;
-  height: 31%;
+  top: 34%;
+  left: 19%;
+  width: 16%;
+  height: 36%;
   color: white;
 }
 
@@ -177,6 +177,7 @@ h1, h2, h3, h4, h5, h6{
   margin-top: 10px;
 }
 
+
 .boss{
   padding: 15px;
   border: 5px solid gold;
@@ -191,11 +192,12 @@ h1, h2, h3, h4, h5, h6{
 #boss-card{
   margin-left: auto;
   margin-right: auto;
-  height: 100%;
+  height: 90%;
+  top: 5%;
 }
 
 .script-box{
-  font-family: 'Almendra SC', regular;
+  font-family: 'Almendra Display', cursive;
   padding: 15px;
   border: 1px solid gold;
   border-style: dotted;

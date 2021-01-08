@@ -12,7 +12,7 @@ const PetCard = props => {
                 <Card 
                     id="pet-card"
                     className="bg-dark text-white border-warning variant-top" 
-                    style={{width: "100px"}} 
+                    style={{width: "170px"}} 
                     onClick={()=>props.handleClick(props.attackingPet)} 
                     onMouseEnter={()=>props.setHoveredPet(props.attackingPet)} 
                 >
