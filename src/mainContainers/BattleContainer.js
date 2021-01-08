@@ -14,8 +14,9 @@ class BattleContainer extends Component {
         exp: "",
         gold: "",
         turnOrder: [],
-        attackingPet: {},
-        script:"",
+        attackingPet: [],
+        attackingPetHP: 0,
+        script: [],
         bossHP: 0,
         deadPets: []
     }
@@ -40,44 +41,19 @@ class BattleContainer extends Component {
 
     componentDidUpdate() {
 
-        if (this.props.battleButtonPressed) {
+        if (this.props.battleButtonPressed === "0" || this.props.battleButtonPressed === "1" || this.props.battleButtonPressed === "2" || this.props.battleButtonPressed === "3") {
+
+            // this.battleSequence()
+
+            this.props.setBattleButtonState("")
 
             this.doPetTurn()
 
-            console.log("hi in if statement")
-
-            // this.props.setBattleButtonState("")
-            
-            this.setState({
-                bossHP: this.state.bossHP - this.petDamageCalculator(this.props.battleButtonPressed)
-            })
-
-            //update script
-
-            // how to disable buttons after 1 click
-            // do boss action
-
-            this.doBossTurn() // also undisable the button
+            setTimeout(this.doBossTurn, 2500);
 
         } else {
-            return
+            return null
         }
-
-        
-        
-        // switch(this.props.battleButtonPressed) {
-
-        //     case '1': 
-        //     break;
-        //     case '2':
-        //     break;
-        //     case '3':
-        //     break;
-
-        //     default: 
-        //     break
-        // }
-
     }
 
 
@@ -92,7 +68,7 @@ class BattleContainer extends Component {
                 exp: data.exp,
                 gold: data.gold,
                 bossHP: data.bosses[0].hp,
-                script: "A ferocious manticore appears... FIGHT"
+                script: ["A ferocious manticore appears... FIGHT"]
             })
         }).then(() => {
             this.setTeam()
@@ -138,20 +114,26 @@ class BattleContainer extends Component {
             })
         } else {
             this.setState({
-                attackingPet:turnOrder[0]
+                attackingPet: [turnOrder[0]],
+                attackingPetHP: turnOrder[0].hp
             })
         }
-        this.props.setAttackingPetMoves(this.state.attackingPet)
+        this.props.setAttackingPetMoves(this.state.attackingPet[0])
         // console.log("turn order", turnOrder)
     }
     
-    battleSequence = () => {
-        this.props.setBattleButtonState("")
+    // battleSequence = () => {
 
-        this.doPetTurn()
+    //     this.props.setBattleButtonState("")
 
-        this.doBossTurn()
-    }
+    //     this.doPetTurn()
+
+    //     debugger
+
+    //     setTimeout(this.doBossTurn(), 2000);
+
+    //     // this.doBossTurn()
+    // }
 
     
 
@@ -189,13 +171,12 @@ class BattleContainer extends Component {
 
     doPetTurn = () => {
 
-        // this.props.setBattleButtonState("")
+        console.log("pet turn")
 
-        //check pet health
-
-        if (this.state.attackingPet.hp <= 0) {
+        if (this.state.attackingPetHP <= 0) {
 
             this.handlePetDeath()
+            debugger
 
         } else {
 
@@ -205,33 +186,40 @@ class BattleContainer extends Component {
                 bossHP: this.state.bossHP - damage
             })
 
-            this.setScript(`${this.state.attackingPet.name} uses ${this.state.attackingPet.abilities[parseInt(this.props.battleButtonPressed)]} for ${damage} damage`)
+            let abilities = this.convertString(this.state.attackingPet[0].abilities)
+
+            this.setScript(`${this.state.attackingPet[0].name} uses ${abilities[parseInt(this.props.battleButtonPressed)]} for ${damage} damage`)
         }
+        // debugger
     }
 
 
     handlePetDeath = () => {
 
-        this.setScript(`Oh no! ${this.state.attackingPet.name} has fallen!`)
+        
+
+        this.setScript(`Oh no! ${this.state.attackingPet[0].name} has fallen!`)
 
         if (this.state.deadPets.length === 0 ) {
+            // this.setState({attackingPet: })
             this.setState({
-                deadPets: this.state.attackingPet,
-                attackingPet: this.state.team[this.state.turnOrder[1]]
+                deadPets: this.state.attackingPet[0],
+                attackingPet: [this.state.team[this.state.turnOrder[1]], ...this.state.attackingPet]
             })
         } else if (this.state.deadPets.length === 1) {
             this.setState({
-                deadPets: this.state.attackingPet,
-                attackingPet: this.state.team[this.state.turnOrder[2]]
+                deadPets: this.state.attackingPet[0],
+                attackingPet: [this.state.team[this.state.turnOrder[2]], ...this.state.attackingPet]
             })
         } else if (this.state.deadPets.length === 2) {
             this.setState({win: false})
             this.handleGameLoss(this.state.win)
         }
-
     }
 
     doBossTurn = () => {
+
+        console.log("boss's turn")
 
         let ability = Math.floor(Math.random() * Math.floor(4)).toString()
 
@@ -240,20 +228,25 @@ class BattleContainer extends Component {
             this.setState({win: true})
             
             this.handleGameEnd()
-
         } else {
+            if (this.state.attackingPetHP > 0) {
+                let damage = this.bossDamageCalculator(ability)
+                this.setState({
+                    attackingPetHP: this.state.attackingPet[0].hp - damage
+                })   
+                let abilities = this.convertString(this.state.boss.abilities)
+                
+                this.setScript(` The Manticore uses ${abilities[ability]} for ${damage} damage`)
+            } else {
+                return null
+            }
+        }
+    }
 
-            let damage = this.petDamageCalculator(this.props.battleButtonPressed)
-
-            this.setState({
-                bossHP: this.state.bossHP - damage
-            })
-
-            this.setScript(`${this.state.attackingPet.name} uses ${this.state.attackingPet.abilities[parseInt(this.props.battleButtonPressed)]} for ${damage} damage`)
-        }//  calc damage THEN update script
-
-        this.doPetTurn()
-
+    convertString = (str) => {
+        if(str) {
+             return JSON.parse(str) 
+        }
     }
 
 
@@ -263,13 +256,11 @@ class BattleContainer extends Component {
 
         switch(ability) {
             case "0":
-
-                    damage = Math.floor(Math.random() * Math.floor(20 - 3) + 4) 
-
+                    damage = Math.floor(Math.random() * Math.floor(20) + 4) 
                 return damage
             break;
             case "1":
-                    damage = Math.floor(Math.random() * Math.floor(30 - 9) + 10) 
+                    damage = Math.floor(Math.random() * Math.floor(30) + 10) 
 
                 if (damage % 2 === 0) {
                     damage = damage * 2
@@ -277,12 +268,12 @@ class BattleContainer extends Component {
                 return damage
             break;
             case "2":
-                    damage = Math.floor(Math.random() * Math.floor(40 - 1) + 2) 
+                    damage = Math.floor(Math.random() * Math.floor(40) + 2) 
 
                 return damage
             break;
             default:
-                    damage = Math.floor(Math.random() * Math.floor(20 - 9) + 10) 
+                    damage = Math.floor(Math.random() * Math.floor(20) + 10) 
 
                 return damage
         }
@@ -291,10 +282,15 @@ class BattleContainer extends Component {
     }
 
     setScript = (text) => {
-        this.setState({
-            script: text
+        this.setState(prevState => {
+            return {
+               script: [...prevState.script, text]
+            }
+            // script: [...prevState.script, text]
         })
     }
+
+    
 
     handleGameEnd = (result) => {
 
@@ -328,11 +324,11 @@ class BattleContainer extends Component {
             <div>
               
                 <div className="battle-team">
-                    <TeamContainer team={this.state.team} setHoveredPet={this.props.setHoveredPet} handleClick={this.props.doNothing}/>
+                    {/* <TeamContainer team={this.state.team} setHoveredPet={this.props.setHoveredPet} handleClick={this.props.doNothing}/> */}
                 </div>
 
                 <div className="active-pet">
-                    <PetCard attackingPet={this.state.attackingPet} setHoveredPet={this.props.setHoveredPet} handleClick={this.props.doNothing}/>
+                    {/* <PetCard attackingPet={this.state.attackingPet[0]} setHoveredPet={this.props.setHoveredPet} handleClick={this.props.doNothing}/> */}
                 </div>
 
                 <div className="boss">
@@ -340,7 +336,7 @@ class BattleContainer extends Component {
                 </div>
 
                 <div className="script-box">
-                    <Script script={this.state.script}/>
+                    <Script script={this.state.script.length > 1 ? this.state.script[this.state.script.length - 1] : this.state.script[0] }/>
                 </div>
 
             </div>
