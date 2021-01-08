@@ -6,10 +6,24 @@ import ChooseTeamContainer from '../mainContainers/ChooseTeamContainer';
 import BattleContainer from '../mainContainers/BattleContainer';
 import SignUpContainer from '../mainContainers/SignUpContainer';
 import EditUserContainer from '../mainContainers/EditUserContainer'
+import Winner from '../components/Winner'
+import GameOver from '../components/GameOver'
 
 class Main extends Component {
 
     state= {name: ""}
+
+    winner = (routerProps) => {
+        if(routerProps.location.pathname === "/winner"){
+            return <Winner /> 
+        }
+    }
+
+    gameOver = (routerProps) => {
+        if(routerProps.location.pathname === "gameover"){
+            return <GameOver />
+        }
+    }
 
     renderForm = (routerProps) => {
         if(routerProps.location.pathname === "/"){
@@ -154,6 +168,8 @@ class Main extends Component {
                     <Route path="/main" exact component={this.main} />
                     <Route path="/chooseTeam" exact component={this.chooseTeam} />
                     <Route path="/editUser" exact component={this.editUser} />
+                    <Route path="/winner" exact component={this.winner} />
+                    <Route path="/gameover" exact component={this.gameOver} />
                 </Switch>
             </div>
         );
