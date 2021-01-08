@@ -238,7 +238,7 @@ class BattleContainer extends Component {
                     {this.state.attackingPet[0] ? this.renderPetCard() : null}
                 </div>
                 <div className="boss">
-                    <Boss name={this.state.boss.name} moves={this.state.boss.abilities} hp={this.state.bossHP}/>
+                    <Boss name={this.state.boss.name} moves={this.state.boss.abilities} hp={this.state.bossHP} img={this.state.boss.img_url}/>
                 </div>
                 <div className="script-box">
                     <Script script={this.state.script.length > 1 ? this.state.script[this.state.script.length - 1] : this.state.script[0] }/>
